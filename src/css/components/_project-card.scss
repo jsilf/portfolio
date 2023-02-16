@@ -1,0 +1,12 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.project-card {
+  height: 400px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: white;
+}

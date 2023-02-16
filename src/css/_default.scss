@@ -11,11 +11,16 @@ html {
 }
 
 body {
-  background-color: white;
+  background: linear-gradient(
+    180deg,
+    $color-primary-blue 0%,
+    $color-primary-purple 74.48%,
+    $color-primary-red 100%
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: black;
+  color: $color-white;
 
   &::-webkit-scrollbar {
     width: 0.8rem;

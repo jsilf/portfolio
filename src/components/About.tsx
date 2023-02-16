@@ -3,51 +3,57 @@ interface IChildComponentProps {
 }
 
 export const About = () => {
+  function getRandomInt(max: number) {
+    return Math.random() * max;
+  }
+
   const education = [
-    "2021-2023 Front end developer, Medieinstitutet",
-    "2014-2015 Arkitektur och design, Nyckelviksskolan",
-    "2013-2014 Grundutbildning konst, Basis konstskola",
-    "2007-2010 Mode och design, St Martins gymnasium",
-    "2021-2023 Front end developer, Medieinstitutet",
+    {
+      id: getRandomInt(10),
+      title: "2021-2023 Front end developer, Medieinstitutet",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2014-2015 Arkitektur och design, Nyckelviksskolan",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2013-2014 Grundutbildning konst, Basis konstskola",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2007-2010 Mode och design, St Martins gymnasium",
+    },
   ];
 
   const experience = [
-    "2019-2021 Kontorsassistent, Nivå Landskapsarkitektur",
-    "2016-2019 Butiksmedarbetare, BAUHAUS",
-    "2015-2016 Värvare, UNHCR",
+    {
+      id: getRandomInt(10),
+      title: "2019-2021 Kontorsassistent, Nivå Landskapsarkitektur",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2016-2019 Butiksmedarbetare, BAUHAUS",
+    },
   ];
 
-  let htmlExperience = experience.map((e, i) => {
+  let htmlExperience = experience.map((ex, i) => {
     return (
-      <li className="experience-li" key={i}>
-        {e}
+      <li className="experience-li" key={ex.id}>
+        {ex.title}
       </li>
     );
   });
 
   let htmlEducation = education.map((ed, i) => {
-    return (
-      <li className="education-li" key={i}>
-        {ed}
-      </li>
-    );
+    return <li key={ed.id}>{ed.title}</li>;
   });
 
   return (
     <>
       <section id="about">
-        <div className="experience-wrap">
-          <h2 className="experience-title">experience</h2>
-          <ul className="experience-list">{htmlExperience}</ul>
-        </div>
-
-        <div className="education-wrap">
-          <h2 className="education-title">education</h2>
-          <ul>{htmlEducation}</ul>
-        </div>
-
-        <div className="about-me_wrap">
-          <h2 className="title-about">about me</h2>
+        <div>
+          <h2>about</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
             repellendus quos voluptatem voluptates laboriosam pariatur nesciunt
@@ -55,17 +61,17 @@ export const About = () => {
             autem nobis deleniti! Quae, repudiandae omnis.
           </p>
         </div>
+      </section>
 
-        <div className="skills-wrap">
-          <h2 className="title-skills">skills</h2>
-          <ul>
-            <li>skill</li>
-            <li>skill</li>
-            <li>skill</li>
-            <li>skill</li>
-            <li>skill</li>
-            <li>skill</li>
-          </ul>
+      <section>
+        <div>
+          <h2>work experience</h2>
+          <ul>{htmlExperience}</ul>
+        </div>
+
+        <div>
+          <h2>education</h2>
+          <ul>{htmlEducation}</ul>
         </div>
       </section>
     </>

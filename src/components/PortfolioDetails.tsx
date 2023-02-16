@@ -24,7 +24,7 @@ export const PortfolioDetails = () => {
   useEffect(() => {
     axios.get<IProject[]>(url).then((response) => {
       let projectsFromApi = response.data.map((project: IProject) => {
-        return new Project(project.id, project.name, project.url);
+        return new Project(project.id, project.name, project.html_url);
       });
 
       setProjectDetails(projectsFromApi);
@@ -37,7 +37,6 @@ export const PortfolioDetails = () => {
         {p.id === projectId && (
           <div>
             <h2>{p.name}</h2>
-            <Link to={p.url}>Länk</Link>{" "}
           </div>
         )}
       </div>

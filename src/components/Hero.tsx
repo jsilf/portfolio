@@ -2,13 +2,13 @@ import { About } from "./About";
 import { Contact } from "./Contact";
 import { Portfolio } from "./Portfolio";
 
-export const Home = () => {
+export const Hero = () => {
   return (
     <>
-      <section>Startsida</section>
-      <About></About>
-      <Portfolio></Portfolio>
-      <Contact></Contact>
+      <section>hero</section>
+      <Portfolio />
+      <About />
+      <Contact />
     </>
   );
 };

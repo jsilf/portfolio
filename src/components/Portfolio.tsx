@@ -1,41 +1,47 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
 import { IProject } from "../models/IProject";
 import { Project } from "../models/Project";
 
-export const Portfolio = () => {
-  //axios get projects from github and display in a fun way
+const url = "https://api.github.com/users/jsilf/repos";
 
-  const url = "https://api.github.com/users/jsilf/repos";
+export const Portfolio = () => {
   const [project, setProject] = useState<Project[]>([]);
 
   useEffect(() => {
-    if (project.length > 0) return;
-    axios.get<IProject[]>(url).then((response) => {
-      console.log(response.data[0]);
+    getData();
+  }, []);
 
-      let projectsFromApi = response.data.map((project: IProject) => {
-        return new Project(project.id, project.name, project.url);
+  async function getData() {
+    try {
+      axios.get<IProject[]>(url).then((response) => {
+        let projectsFromApi = response.data.map((project: IProject) => {
+          return new Project(project.id, project.name, project.html_url);
+        });
+        setProject(projectsFromApi);
       });
-      setProject(projectsFromApi);
-    });
-  });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   let html = project.map((p, i) => {
     return (
-      <p key={i}>
-        <Link to={`/${p.id}`}>{p.name}</Link>
-      </p>
+      <div key={i} className="project-card">
+        <p>
+          <a href={`${p.html_url}`}>{p.name}</a>
+        </p>
+      </div>
     );
   });
-  <Outlet />;
 
   return (
     <>
       <section id="portfolio">
-        <h2>Mina projekt på Github</h2>
-        <div>{html}</div>
+        <div>
+          <h2>Projects on Github</h2>
+          <div className="projects">{html}</div>
+        </div>
       </section>
     </>
   );
