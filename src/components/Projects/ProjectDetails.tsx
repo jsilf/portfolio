@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { IProject } from "../models/IProject";
-import { Project } from "../models/Project";
+import { IProject } from "../../models/IProject";
+import { Project } from "../../models/Project";
 
-export const PortfolioDetails = () => {
+export const ProjectDetails = () => {
   const url = "https://api.github.com/users/jsilf/repos";
   const [projectDetails, setProjectDetails] = useState<Project[]>([]);
   const [projectId, setProjectId] = useState(0);

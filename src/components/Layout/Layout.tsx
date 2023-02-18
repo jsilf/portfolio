@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
-import { ITheme, themes } from "../context/ThemeContext";
+import { ITheme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Nav } from "./Nav";
 import { ThemedButton } from "./ThemedButton";
 
 interface IStyledAppProps {
@@ -11,8 +11,16 @@ interface IStyledAppProps {
 }
 
 const StyledLayout = styled.div`
-  background-color: ${(props: IStyledAppProps) => props.theme.background};
+  background: ${(props: IStyledAppProps) => props.theme.background};
   color: ${(props: IStyledAppProps) => props.theme.color};
+
+  a {
+    color: ${(props: IStyledAppProps) => props.theme.color};
+  }
+
+  .project-card {
+    background: ${(props: IStyledAppProps) => props.theme.color};
+  }
 `;
 
 export const Layout = () => {
@@ -29,8 +37,11 @@ export const Layout = () => {
   return (
     <ThemeContext.Provider value={theme}>
       <StyledLayout>
-        <Header />
-        <ThemedButton onClick={toggleTheme}>Lightmode/Darkmode</ThemedButton>
+        <header>
+          <Nav></Nav>
+          <ThemedButton onClick={toggleTheme}></ThemedButton>
+        </header>
+
         <main>
           <Outlet />
         </main>

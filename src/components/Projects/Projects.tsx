@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IProject } from "../models/IProject";
-import { Project } from "../models/Project";
+import { IProject } from "../../models/IProject";
+import { Project } from "../../models/Project";
 
 const url = "https://api.github.com/users/jsilf/repos";
 
-export const Portfolio = () => {
+export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
 
   useEffect(() => {
@@ -25,20 +25,22 @@ export const Portfolio = () => {
     }
   }
 
-  let html = project.map((p, i) => {
+  let html = project.map((p) => {
     return (
-      <div key={i} className="project-card">
-        <p>
-          <a href={`${p.html_url}`}>{p.name}</a>
-        </p>
-      </div>
+      <a key={p.id} href={`${p.html_url}`}>
+        <div className="project-card">
+          <p>{p.name}</p>
+        </div>
+      </a>
     );
   });
 
+  console.log(html);
+
   return (
     <>
-      <section id="portfolio">
-        <div>
+      <section className="p-standard" id="portfolio">
+        <div className="display-flex display-flex-col align-center">
           <h2>Projects on Github</h2>
           <div className="projects">{html}</div>
         </div>

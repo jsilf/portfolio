@@ -1,15 +1,9 @@
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-export const Header = () => {
+export const Nav = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <HashLink smooth to={"/#"}>
-            top
-          </HashLink>
-        </li>
         <li>
           <HashLink smooth to={"/#about"}>
             about

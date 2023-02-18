@@ -29,11 +29,17 @@ export const About = () => {
   const experience = [
     {
       id: getRandomInt(10),
-      title: "2019-2021 Kontorsassistent, Nivå Landskapsarkitektur",
+      title:
+        "2022-2023 Frontend developer, internship at Sphinxly digital agency remote/Stockholm, Sweden.",
     },
     {
       id: getRandomInt(10),
-      title: "2016-2019 Butiksmedarbetare, BAUHAUS",
+      title:
+        "2019-2021 Office assistant at Nivå Landskapsarkitektur Stockholm, Sweden.",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2016-2019 Cashier at BAUHAUS Stockholm, Sweden.",
     },
   ];
 
@@ -51,7 +57,7 @@ export const About = () => {
 
   return (
     <>
-      <section id="about">
+      <section className="p-standard" id="about">
         <div>
           <h2>about</h2>
           <p>
@@ -60,18 +66,16 @@ export const About = () => {
             cumque ea illum praesentium, quisquam deserunt corrupti dolores
             autem nobis deleniti! Quae, repudiandae omnis.
           </p>
-        </div>
-      </section>
 
-      <section>
-        <div>
-          <h2>work experience</h2>
-          <ul>{htmlExperience}</ul>
-        </div>
+          <div>
+            <h3>work experience</h3>
+            <ul>{htmlExperience}</ul>
+          </div>
 
-        <div>
-          <h2>education</h2>
-          <ul>{htmlEducation}</ul>
+          <div>
+            <h3>education</h3>
+            <ul>{htmlEducation}</ul>
+          </div>
         </div>
       </section>
     </>
