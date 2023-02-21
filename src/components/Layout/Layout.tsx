@@ -1,10 +1,11 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
 import { ITheme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
 import { Nav } from "./Nav";
 import { ThemedButton } from "./ThemedButton";
+import logo from "../../assets/logo.png";
 
 interface IStyledAppProps {
   theme: ITheme;
@@ -38,10 +39,10 @@ export const Layout = () => {
     <ThemeContext.Provider value={theme}>
       <StyledLayout>
         <header>
+          <img src={logo} width={70} height={70} alt="logga" />
           <Nav></Nav>
           <ThemedButton onClick={toggleTheme}></ThemedButton>
         </header>
-
         <main>
           <Outlet />
         </main>

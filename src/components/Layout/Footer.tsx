@@ -23,7 +23,7 @@ export const Footer = () => {
         </div>
         <div>
           <p>
-            {thisYear} Copyright &copy; {owner}
+            Copyright &copy; {owner} {thisYear}
           </p>
         </div>
       </div>
