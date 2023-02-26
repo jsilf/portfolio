@@ -1,36 +1,57 @@
-interface IChildComponentProps {
-  name: string;
+import { Education } from "./Education";
+import { Experience } from "./Experience";
+
+interface IEducationList {
+  education: {
+    id: number;
+    title: string;
+  }[];
 }
 
-export const About = () => {
-  function getRandomInt(max: number) {
-    return Math.random() * max;
-  }
+interface IExperienceList {
+  experience: {
+    id: number;
+    title: string;
+  }[];
+}
 
-  const education = [
-    {
-      id: getRandomInt(10),
-      title: "2021-2023 Front end developer, Medieinstitutet",
-    },
-    {
-      id: getRandomInt(10),
-      title: "2014-2015 Arkitektur och design, Nyckelviksskolan",
-    },
-    {
-      id: getRandomInt(10),
-      title: "2013-2014 Grundutbildning konst, Basis konstskola",
-    },
-    {
-      id: getRandomInt(10),
-      title: "2007-2010 Mode och design, St Martins gymnasium",
-    },
-  ];
+function getRandomInt(max: number) {
+  return Math.random() * max;
+}
 
-  const experience = [
+const educationList: IEducationList = {
+  education: [
     {
       id: getRandomInt(10),
       title:
-        "2022-2023 Frontend developer, internship at Sphinxly digital agency remote/Stockholm, Sweden.",
+        "2021-2023 Frontend developer, Medieinstitutet online/Stockholm, Sweden",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2021 Webbutveckling 1, NTI online, Sweden",
+    },
+    {
+      id: getRandomInt(10),
+      title:
+        "2014-2015 Arkitektur and design, Nyckelviksskolan, Lidingö Sweden",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2013-2014 Basis art school, Stockholm Sweden",
+    },
+    {
+      id: getRandomInt(10),
+      title: "2007-2010 Mode och design, St Martins gymnasium, Solna Sweden",
+    },
+  ],
+};
+
+const experienceList: IExperienceList = {
+  experience: [
+    {
+      id: getRandomInt(10),
+      title:
+        "2022-2023 Frontend developer, internship at Sphinxly remote/Stockholm, Sweden.",
     },
     {
       id: getRandomInt(10),
@@ -41,20 +62,10 @@ export const About = () => {
       id: getRandomInt(10),
       title: "2016-2019 Cashier at BAUHAUS Stockholm, Sweden.",
     },
-  ];
+  ],
+};
 
-  let htmlExperience = experience.map((ex, i) => {
-    return (
-      <li className="experience-li" key={ex.id}>
-        {ex.title}
-      </li>
-    );
-  });
-
-  let htmlEducation = education.map((ed, i) => {
-    return <li key={ed.id}>{ed.title}</li>;
-  });
-
+export const About = () => {
   return (
     <>
       <section className="p-standard" id="about">
@@ -67,15 +78,8 @@ export const About = () => {
             autem nobis deleniti! Quae, repudiandae omnis.
           </p>
 
-          <div>
-            <h3>work experience</h3>
-            <ul>{htmlExperience}</ul>
-          </div>
-
-          <div>
-            <h3>education</h3>
-            <ul>{htmlEducation}</ul>
-          </div>
+          <Education education={educationList.education} />
+          <Experience experience={experienceList.experience} />
         </div>
       </section>
     </>

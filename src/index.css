@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Lato";
   src: local("Lato"), url("./fonts/Lato/Lato-Regular.ttf") format("truetype");
-  font-weight: regular;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -15,9 +15,9 @@
 }
 
 @font-face {
-  font-family: "Amatic SC";
-  src: local("Amatic SC"),
-    url("./fonts/Amatic_SC/AmaticSC-Bold.ttf") format("truetype");
-  font-weight: bold;
+  font-family: "Poiret One";
+  src: local("Poiret One"),
+    url("./fonts/Poiret_One/PoiretOne-Regular.ttf") format("truetype");
+  font-weight: 400;
   font-display: swap;
 }

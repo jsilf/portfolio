@@ -29,41 +29,6 @@ body {
   }
 }
 
-h1 {
-  font-family: $font-h1;
-  font-size: 96px;
-}
-
-h2 {
-  font-size: 48px;
-}
-
-h3 {
-  font-size: 36px;
-}
-
-h2,
-h3,
-h4 {
-  font-family: $font-header;
-  letter-spacing: 0.1em;
-  font-weight: 100;
-  text-transform: lowercase;
-}
-
-p,
-span,
-li,
-a {
-  font-family: $font-main;
-  font-size: 18px;
-}
-
-a {
-  color: $color-white;
-  text-decoration: none;
-}
-
 section {
   &.p {
     &-standard {
