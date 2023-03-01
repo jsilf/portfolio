@@ -5,13 +5,13 @@ export const Nav = () => {
     <nav>
       <ul>
         <li>
-          <HashLink smooth to={"/#about"}>
-            about
+          <HashLink smooth to={"/#portfolio"}>
+            portfolio
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to={"/#portfolio"}>
-            github repos
+          <HashLink smooth to={"/#about"}>
+            about
           </HashLink>
         </li>
         <li>

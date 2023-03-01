@@ -1,12 +1,20 @@
+import { motion } from "framer-motion";
+
 interface IThemedButtonProps {
   onClick?: () => void;
+  isOn: boolean;
 }
 
 export const ThemedButton = (props: IThemedButtonProps) => {
+  const spring = {
+    type: "spring",
+    stiffness: 400,
+    damping: 50,
+  };
+
   return (
-    <label className="theme-button" htmlFor="theme">
-      <input aria-label="theme" type="checkbox" onChange={props.onClick} />
-      <span className="dark"></span>
-    </label>
+    <div className="switch" data-ison={props.isOn} onClick={props.onClick}>
+      <motion.div className="handle" layout transition={spring} />
+    </div>
   );
 };

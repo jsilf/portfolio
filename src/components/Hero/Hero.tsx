@@ -1,4 +1,5 @@
 import profilePic from "../../assets/profile_pic.jpg";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
@@ -13,9 +14,11 @@ export const Hero = () => {
         </div>
 
         <div className="hero-image-block">
-          <figure>
-            <img src={profilePic} />
-          </figure>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <figure>
+              <img src={profilePic} />
+            </figure>
+          </motion.div>
           <p className="hero-image-block_text">Frontend Developer</p>
         </div>
       </section>

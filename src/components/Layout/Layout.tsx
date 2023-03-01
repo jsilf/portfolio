@@ -6,6 +6,7 @@ import { Footer } from "./Footer";
 import { Nav } from "./Nav";
 import { ThemedButton } from "./ThemedButton";
 import logo from "../../assets/logo.png";
+import { HashLink } from "react-router-hash-link";
 
 interface IStyledAppProps {
   theme: ITheme;
@@ -20,14 +21,17 @@ const StyledLayout = styled.div`
   }
 
   .project-card {
-    background: ${(props: IStyledAppProps) => props.theme.color};
+    background: ${(props: IStyledAppProps) => props.theme.blueColor};
+    color: ${(props: IStyledAppProps) => props.theme.textColor};
   }
 `;
 
 export const Layout = () => {
   const [theme, setTheme] = useState<ITheme>(themes.dark);
+  const [isOn, setIsOn] = useState(false);
 
   const toggleTheme = () => {
+    setIsOn(!isOn);
     if (theme === themes.light) {
       setTheme(themes.dark);
     } else {
@@ -39,9 +43,11 @@ export const Layout = () => {
     <ThemeContext.Provider value={theme}>
       <StyledLayout>
         <header>
-          <img src={logo} width={70} height={70} alt="logga" />
+          <HashLink smooth to={"/"}>
+            <img src={logo} width={70} height={70} alt="logga" />
+          </HashLink>
           <Nav></Nav>
-          <ThemedButton onClick={toggleTheme}></ThemedButton>
+          <ThemedButton isOn={isOn} onClick={toggleTheme}></ThemedButton>
         </header>
         <main>
           <Outlet />

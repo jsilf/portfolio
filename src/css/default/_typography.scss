@@ -1,14 +1,14 @@
 h1 {
   font-family: $font-h1;
-  font-size: 6rem;
+  font-size: $font-xlarge;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: $font-large;
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: $font-medium;
 }
 
 h2,
@@ -21,11 +21,12 @@ h4 {
 }
 
 p,
-span,
-li,
-a {
+span {
   font-family: $font-main;
-  font-size: 1.125rem;
+}
+
+p {
+  font-size: $font-small;
 }
 
 a {
