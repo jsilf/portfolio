@@ -1,0 +1,35 @@
+h1 {
+  font-family: $font-h1;
+  font-size: $font-xlarge;
+}
+
+h2 {
+  font-size: $font-large;
+}
+
+h3 {
+  font-size: $font-medium;
+}
+
+h2,
+h3,
+h4 {
+  font-family: $font-header;
+  letter-spacing: 0.1em;
+  font-weight: 100;
+  text-transform: lowercase;
+}
+
+p,
+span {
+  font-family: $font-main;
+}
+
+p {
+  font-size: $font-small;
+}
+
+a {
+  color: $color-white;
+  text-decoration: none;
+}

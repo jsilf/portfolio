@@ -1,6 +1,13 @@
 /* IMPORTS */
-@import "_variables";
+@import "./default/_variables";
+@import "./default/_mediaqueries";
+@import "./default/_typography";
+@import "./default/_default";
+@import "./default/_animations";
 
-@import "_default";
-
-@import "./components/_project-card";
+@import "./components/footer";
+@import "./components/header";
+@import "./components/_hero";
+@import "./components/_project";
+@import "./components/_about";
+@import "./components/_contact";
