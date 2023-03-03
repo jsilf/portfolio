@@ -74,7 +74,7 @@ export const Projects = () => {
                   viewport={{ once: true, amount: 0.8 }}>
                   <a href={`${p.html_url}`}>
                     <motion.div variants={cardVariants}>
-                      <div className="project-card">
+                      <div className="project-card display-flex justify-center align-center">
                         <p>{p.name}</p>
                       </div>
                     </motion.div>

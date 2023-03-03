@@ -9,7 +9,7 @@ export const Footer = () => {
 
   return (
     <footer>
-      <div className="display-flex justify-between">
+      <div className="content display-flex justify-between">
         <div>
           <a href="https://github.com/jsilf">
             <FontAwesomeIcon icon={faGithubSquare} className="icon" />

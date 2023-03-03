@@ -34,7 +34,6 @@ section {
     &-standard {
       padding: 80px 0;
       min-height: 70vh;
-      max-height: 90vh;
 
       @include tablet {
         padding: 60px 0;
@@ -47,6 +46,14 @@ main {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 60px;
+
+  @include tablet {
+    padding: 0 50px;
+  }
+  @include phone {
+    padding: 0 40px;
+  }
 }
 
 .display-flex {

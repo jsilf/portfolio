@@ -5,21 +5,24 @@ export const Hero = () => {
   return (
     <>
       <section className="hero slide-bottom">
-        <div className="hero-text-block">
-          <h1>
-            <span className="hero-intro">Hi, i'm</span>Jessica, I love nature,
-            music and bibimbap.
-          </h1>
-          <p>And of course build and design things for the web!</p>
-        </div>
+        <div className="display-flex justify-between align-center">
+          <div className="hero-text-block">
+            <h1>
+              <span className="hero-intro">Hi, i'm</span>Jessica, I love nature,
+              music and bibimbap.
+            </h1>
+            <p>And of course build and design things for the web!</p>
+          </div>
 
-        <div className="hero-image-block">
-          <motion.div whileHover={{ scale: 1.1 }}>
+          <div className="hero-image-block display-flex display-flex-col align-center">
             <figure>
-              <img src={profilePic} />
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <img src={profilePic} />
+              </motion.div>
             </figure>
-          </motion.div>
-          <p className="hero-image-block_text">Frontend Developer</p>
+
+            <p className="hero-image-block_text">Frontend Developer</p>
+          </div>
         </div>
       </section>
     </>
