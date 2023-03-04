@@ -1,0 +1,57 @@
+#about {
+  .about-title,
+  .about-subtitle {
+    padding-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .text-block {
+    text-align: center;
+    max-width: 700px;
+    padding-bottom: 3rem;
+  }
+
+  .text-block-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem 0;
+  }
+
+  .list-block {
+    .list-date {
+      position: relative;
+
+      &:after {
+        content: "\a";
+        white-space: pre;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: -25px;
+        width: 15px;
+        height: 15px;
+        background-color: $color-grey;
+        border-radius: 50%;
+        transition: left 0.2s ease-in-out;
+      }
+    }
+    ul {
+      margin: 0 2rem;
+      max-width: 450px;
+      list-style: none;
+    }
+    li {
+      line-height: 1.6;
+      font-family: $font-main;
+      &:hover {
+        .list-date:before {
+          left: -20px;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,26 @@
 h1 {
   font-family: $font-h1;
   font-size: $font-xlarge;
+
+  @include tablet {
+    font-size: $font-large;
+  }
 }
 
 h2 {
   font-size: $font-large;
+
+  @include tablet {
+    font-size: $font-medium;
+  }
 }
 
 h3 {
   font-size: $font-medium;
+
+  @include tablet {
+    font-size: $font-sm;
+  }
 }
 
 h2,
@@ -23,10 +35,13 @@ h4 {
 p,
 span {
   font-family: $font-main;
-}
-
-p {
   font-size: $font-small;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+
+  @include tablet {
+    font-size: $font-xsmall;
+  }
 }
 
 a {

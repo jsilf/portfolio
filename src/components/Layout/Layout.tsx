@@ -5,7 +5,7 @@ import { ITheme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
 import { Nav } from "./Nav";
 import { ThemedButton } from "./ThemedButton";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.svg";
 import { HashLink } from "react-router-hash-link";
 
 interface IStyledAppProps {
