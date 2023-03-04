@@ -23,18 +23,12 @@
         position: absolute;
         bottom: 2px;
         left: -25px;
-        width: 0;
-        height: 0;
-        border-bottom: 8px solid transparent;
-        border-left: 12px solid rgba($color-primary-darkblue, 0.8);
-        border-top: 8px solid transparent;
-        transition: left 0.2s ease-in-out;
-      }
+        width: 15px;
+        height: 15px;
+        background-color: $color-grey;
+        border-radius: 50%;
 
-      &:hover {
-        &:before {
-          left: -20px;
-        }
+        transition: left 0.2s ease-in-out;
       }
     }
     ul {
@@ -45,6 +39,11 @@
     li {
       line-height: 1.6;
       font-family: $font-main;
+      &:hover {
+        .list-date:before {
+          left: -20px;
+        }
+      }
     }
   }
 }
