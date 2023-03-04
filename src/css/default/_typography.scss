@@ -37,7 +37,7 @@ span {
   font-family: $font-main;
   font-size: $font-small;
   line-height: 1.6;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 
   @include tablet {
     font-size: $font-xsmall;
