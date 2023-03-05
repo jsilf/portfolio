@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { HashLink } from "react-router-hash-link";
 
 export const Footer = () => {
   const date = new Date();
@@ -11,20 +12,34 @@ export const Footer = () => {
     <footer>
       <div className="content display-flex justify-between">
         <div>
-          <a href="https://github.com/jsilf">
+          <a
+            href="https://github.com/jsilf"
+            target="_blank"
+            rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithubSquare} className="icon" />
           </a>
-          <a href="https://www.linkedin.com/in/jessica-silfver">
+          <a
+            href="https://www.linkedin.com/in/jessica-silfver"
+            target="_blank"
+            rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} className="icon" />
           </a>
-          <a href="mailto:jesilfver@gmail.com">
+          <a
+            href="mailto:jesilfver@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer">
             <FontAwesomeIcon icon={faEnvelope} className="icon" />
           </a>
         </div>
         <div>
-          <p>
+          <p className="footer-copyright">
             Copyright &copy; {owner} {thisYear}
           </p>
+        </div>
+        <div>
+          <HashLink smooth to={"/#top"}>
+            <span className="arrow-up"></span>
+          </HashLink>
         </div>
       </div>
     </footer>

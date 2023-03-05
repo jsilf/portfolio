@@ -1,13 +1,22 @@
 header {
-  display: flex;
-  justify-content: space-between;
   padding: 30px 0;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  position: relative;
+
+  @include laptop {
+    padding: 30px 60px;
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 
   nav {
     width: 100%;
+    transition: height 0.2s ease-in-out;
 
     ul {
       display: flex;
@@ -37,9 +46,23 @@ header {
           right: 0;
           position: absolute;
         }
-      }
-      a:hover {
-        text-decoration: underline;
+
+        a:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 6px;
+          background-color: $color-primary-darkblue;
+          transition: width 0.25s ease-in-out;
+        }
+
+        a:hover {
+          &:before {
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -55,6 +78,12 @@ header {
   border-radius: 50px;
   padding: 1rem 0.5rem;
   cursor: pointer;
+
+  @include tablet {
+    position: absolute;
+    top: 30px;
+    right: 130px;
+  }
 }
 
 .switch[data-isOn="true"] {
