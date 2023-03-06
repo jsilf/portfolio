@@ -9,7 +9,7 @@ const StyledNav = styled.nav<IOpenProps>`
     top: 0;
     right: 0;
     z-index: 10;
-    background: ${({ open }) => (!open ? "transparent" : "#111111da")};
+    background: ${({ open }) => (!open ? "transparent" : "#041124f8")};
     width: ${({ open }) => (!open ? "100px" : "100%")};
     height: ${({ open }) => (!open ? "80px" : "40vh")};
     overflow: hidden;
@@ -45,17 +45,17 @@ export const Nav = () => {
       <Burger open={isOpen} click={handleClick}></Burger>
       <ul>
         <li>
-          <HashLink smooth to={"/#portfolio"}>
+          <HashLink onClick={handleClick} smooth to={"/#portfolio"}>
             portfolio
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to={"/#about"}>
+          <HashLink onClick={handleClick} smooth to={"/#about"}>
             about
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to={"/#contact"}>
+          <HashLink onClick={handleClick} smooth to={"/#contact"}>
             contact
           </HashLink>
         </li>

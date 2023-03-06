@@ -5,8 +5,13 @@
   justify-content: center;
   align-items: center;
 
-  @include tablet {
+  @include phone {
     padding: 60px 0;
+    height: 90vh;
+  }
+
+  @include small-phone {
+    height: 100%;
   }
 
   &-inner {
@@ -17,14 +22,29 @@
     max-width: 800px;
     position: relative;
 
+    @include phone {
+      margin-top: 2rem;
+    }
+
     &_title {
       padding-right: 4rem;
+
+      @include phone {
+        padding: 0 0 1rem 0;
+      }
     }
     &_span {
+      line-height: 1.6;
+      letter-spacing: 0.08em;
       font-size: 20px;
       position: absolute;
       top: -50px;
       left: 0;
+
+      @include phone {
+        font-size: 0.9rem;
+        top: -40px;
+      }
     }
   }
 
@@ -63,7 +83,7 @@
     transform: rotate(-45deg);
     animation: arrow 1.5s infinite;
 
-    @include tablet {
+    @include phone {
       display: none;
     }
   }

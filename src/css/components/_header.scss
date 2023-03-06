@@ -6,6 +6,10 @@ header {
     padding: 30px 60px;
   }
 
+  @include phone {
+    padding: 1rem;
+  }
+
   .inner {
     display: flex;
     justify-content: space-between;
@@ -80,8 +84,10 @@ header {
   cursor: pointer;
 
   @include phone {
+    width: 60px;
+    height: 20px;
     position: absolute;
-    top: 30px;
+    top: 35px;
     right: 130px;
   }
 }
@@ -95,4 +101,9 @@ header {
   height: 30px;
   background-color: $color-white;
   border-radius: 50%;
+
+  @include phone {
+    width: 20px;
+    height: 20px;
+  }
 }
