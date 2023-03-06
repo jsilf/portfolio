@@ -11,16 +11,17 @@ const StyledNav = styled.nav<IOpenProps>`
     z-index: 10;
     background: ${({ open }) => (!open ? "transparent" : "#111111da")};
     width: ${({ open }) => (!open ? "100px" : "100%")};
-    height: ${({ open }) => (!open ? "100px" : "40vh")};
+    height: ${({ open }) => (!open ? "80px" : "40vh")};
     overflow: hidden;
     transition: height 0.2s ease-in-out;
 
     ul {
+      display: ${({ open }) => (!open ? "none" : "flex")};
+      flex-direction: column;
       position: absolute;
       top: 0;
-      transform: translate(50%, 50%);
       right: 50%;
-      flex-direction: column;
+      transform: translate(50%, 50%);
 
       li:after {
         content: "";
@@ -29,10 +30,6 @@ const StyledNav = styled.nav<IOpenProps>`
         left: 0;
       }
     }
-  }
-
-  ul {
-    display: ${({ open }) => (!open ? "none" : "flex")};
   }
 `;
 
