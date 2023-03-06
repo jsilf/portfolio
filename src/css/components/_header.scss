@@ -79,7 +79,7 @@ header {
   padding: 1rem 0.5rem;
   cursor: pointer;
 
-  @include tablet {
+  @include phone {
     position: absolute;
     top: 30px;
     right: 130px;
