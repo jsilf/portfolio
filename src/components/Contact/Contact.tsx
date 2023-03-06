@@ -2,7 +2,7 @@ import bgImage from "../../assets/ash-edmonds-0aWZdK8nK2I-unsplash.jpg";
 
 export const Contact = () => {
   return (
-    <section className="p-standard" id="contact">
+    <section className="standard" id="contact">
       <figure className="contact-bg">
         <img src={bgImage} alt="abstract background" />
         <figcaption className="contact-bg_caption">

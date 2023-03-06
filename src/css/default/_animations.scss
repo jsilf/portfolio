@@ -1,27 +1,13 @@
-@keyframes slideInBottom {
+@keyframes arrow {
   0% {
-    transform: translateY(-3%);
+    transform: rotate(-45deg) translate(0, 0);
     opacity: 0;
   }
-  100% {
-    transform: translateY(0);
+  50% {
     opacity: 1;
   }
-}
-
-@keyframes opacity {
-  0% {
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
     opacity: 0;
   }
-  100% {
-    opacity: 1;
-  }
-}
-
-.slide-bottom {
-  animation: 1s ease-in-out 0s 1 slideInBottom;
-}
-
-.opacity {
-  animation: 1s ease-in-out 0s 1 opacity;
 }

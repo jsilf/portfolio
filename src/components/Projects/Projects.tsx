@@ -3,8 +3,33 @@ import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { IProject } from "../../models/IProject";
 import { Project } from "../../models/Project";
-
 import styled from "styled-components";
+import map from "../../assets/interactive-map.png";
+import logo from "../../assets/Logo.svg";
+
+const num = 1;
+
+const images = [
+  {
+    id: num + 1,
+    title: "portfolio",
+    image: logo,
+    techStack: "React, Vite, TypeScript",
+  },
+  {
+    id: num + 1,
+    title: "CV",
+    image: logo,
+    techStack: "HTML, SCSS, JavaScript",
+  },
+
+  {
+    id: num + 1,
+    title: "interactive-tourist-map",
+    image: map,
+    techStack: "React, TypeScript, Node.js, Express.js, MongoDB ",
+  },
+];
 
 const StyledButton = styled.button`
   background: #041124;
@@ -19,37 +44,50 @@ export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
   const projectPerRow = 3;
   const [nextRow, setNextRow] = useState(projectPerRow);
+  const filterFromApi = "jsilf";
 
   useEffect(() => {
-    getData();
+    axios
+      .get<IProject[]>("https://api.github.com/users/jsilf/repos")
+      .then((response) => {
+        let projectsFromApi = response.data.map((project: IProject) => {
+          return new Project(
+            project.id,
+            project.name,
+            project.html_url,
+            project.homepage
+          );
+        });
+        const filtered = projectsFromApi.filter(
+          (proj) => proj.name !== filterFromApi
+        );
+        return setProject(filtered);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
   }, []);
-
-  console.log(project);
 
   const handleMoreProjects = () => {
     setNextRow(nextRow + projectPerRow);
   };
 
-  async function getData() {
-    try {
-      axios
-        .get<IProject[]>("https://api.github.com/users/jsilf/repos")
-        .then((response) => {
-          let projectsFromApi = response.data.map((project: IProject) => {
-            return new Project(project.id, project.name, project.html_url);
-          });
-          setProject(projectsFromApi);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const cardVariants: Variants = {
     offscreen: {
+      opacity: 0,
       y: 200,
     },
     onscreen: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -61,7 +99,7 @@ export const Projects = () => {
 
   return (
     <>
-      <section className="p-standard" id="portfolio">
+      <section className="standard" id="portfolio">
         <div className="display-flex display-flex-col align-center">
           <h2>portfolio</h2>
           <div className="projects">
@@ -72,13 +110,29 @@ export const Projects = () => {
                   initial="offscreen"
                   whileInView="onscreen"
                   viewport={{ once: true, amount: 0.8 }}>
-                  <a href={`${p.html_url}`}>
-                    <motion.div variants={cardVariants}>
-                      <div className="project-card display-flex justify-center align-center">
-                        <p>{p.name}</p>
-                      </div>
-                    </motion.div>
-                  </a>
+                  <motion.div
+                    variants={cardVariants}
+                    whileHover={{ scale: 1.1 }}>
+                    <a
+                      href={p.homepage}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      {images?.map((img) => {
+                        return (
+                          img.title === p.name && (
+                            <div
+                              key={img.id}
+                              className="project-card display-flex justify-center align-center">
+                              <img src={img.image} width={600} height={400} />
+                              <p className="project-card_text">
+                                Tech stack: {img.techStack}
+                              </p>
+                            </div>
+                          )
+                        );
+                      })}
+                    </a>
+                  </motion.div>
                 </motion.div>
               );
             })}

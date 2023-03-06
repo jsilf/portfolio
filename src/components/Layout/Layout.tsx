@@ -16,13 +16,44 @@ const StyledLayout = styled.div`
   background: ${(props: IStyledAppProps) => props.theme.background};
   color: ${(props: IStyledAppProps) => props.theme.color};
 
-  a {
+  /* a {
+    color: ${(props: IStyledAppProps) => props.theme.color};
+  } */
+
+  .burger {
+    background: ${(props: IStyledAppProps) => props.theme.color};
+  }
+
+  nav > li > a {
     color: ${(props: IStyledAppProps) => props.theme.color};
   }
 
-  .project-card {
-    background: ${(props: IStyledAppProps) => props.theme.blueColor};
-    color: ${(props: IStyledAppProps) => props.theme.textColor};
+  @media screen and (max-width: 768px) {
+    nav > li > a {
+      color: ${(props: IStyledAppProps) => props.theme.background};
+    }
+  }
+
+  .arrow-down {
+    border-bottom: 2px solid ${(props: IStyledAppProps) => props.theme.color};
+    border-left: 2px solid ${(props: IStyledAppProps) => props.theme.color};
+  }
+
+  .arrow-up {
+    border-top: 2px solid ${(props: IStyledAppProps) => props.theme.color};
+    border-right: 2px solid ${(props: IStyledAppProps) => props.theme.color};
+  }
+
+  .project-card_text {
+    color: ${(props: IStyledAppProps) => props.theme.background};
+  }
+
+  .contact-text {
+    color: ${(props: IStyledAppProps) => props.theme.background};
+
+    a {
+      color: ${(props: IStyledAppProps) => props.theme.background};
+    }
   }
 `;
 
@@ -42,12 +73,14 @@ export const Layout = () => {
   return (
     <ThemeContext.Provider value={theme}>
       <StyledLayout>
-        <header>
-          <HashLink smooth to={"/"}>
-            <img src={logo} width={70} height={70} alt="logga" />
-          </HashLink>
-          <Nav></Nav>
-          <ThemedButton isOn={isOn} onClick={toggleTheme}></ThemedButton>
+        <header id="top">
+          <div className="inner">
+            <HashLink smooth to={"/"}>
+              <img src={logo} width={70} height={70} alt="logga" />
+            </HashLink>
+            <Nav></Nav>
+            <ThemedButton isOn={isOn} onClick={toggleTheme}></ThemedButton>
+          </div>
         </header>
         <main>
           <Outlet />
