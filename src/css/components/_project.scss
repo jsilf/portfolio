@@ -1,5 +1,9 @@
 #portfolio {
   margin-top: 4rem;
+
+  @include tablet {
+    margin-top: 0;
+  }
 }
 
 .projects {
