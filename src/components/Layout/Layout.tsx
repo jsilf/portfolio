@@ -20,16 +20,16 @@ const StyledLayout = styled.div`
     color: ${(props: IStyledAppProps) => props.theme.color};
   } */
 
-  .burger {
+  /* .burger {
     background: ${(props: IStyledAppProps) => props.theme.color};
-  }
+  } */
 
-  nav > li > a {
+  nav li a {
     color: ${(props: IStyledAppProps) => props.theme.color};
   }
 
   @media screen and (max-width: 768px) {
-    nav > li > a {
+    nav li a {
       color: ${(props: IStyledAppProps) => props.theme.background};
     }
   }
