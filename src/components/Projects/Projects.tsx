@@ -130,7 +130,12 @@ export const Projects = () => {
                             <div
                               key={img.id}
                               className="project-card display-flex justify-center align-center">
-                              <img src={img.image} width={600} height={400} />
+                              <img
+                                src={img.image}
+                                width={600}
+                                height={400}
+                                alt="project image"
+                              />
                               <p className="project-card_text">
                                 {img.techStack}
                               </p>
