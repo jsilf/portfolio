@@ -1,9 +1,12 @@
 # Personal portfolio
 
-This is my personal portfolio using Githubs api for my portfolio projects.
+This is my personal portfolio using Githubs api for my portfolio projects.  
+Design made in Figma.  
+Deployed on Vercel, check it out here: https://jessicasilfver.com  
 
 ## Logo
 
+![Logo](https://user-images.githubusercontent.com/92667872/224483169-b32a5d31-856e-42b3-a531-4302820a912a.svg)
 
 
 ## Tech Stack  
@@ -18,7 +21,10 @@ This is my personal portfolio using Githubs api for my portfolio projects.
 
 #### Packages used
 axios  
-@fontawesome
+@fontawesome  
+framer-motion  
+sass  
+styled components  
 
 
 ## License  
