@@ -1,4 +1,4 @@
-import bgImage from "../../assets/ash-edmonds-0aWZdK8nK2I-unsplash.jpg";
+import bgImage from "../../assets/ash.webp";
 
 export const Contact = () => {
   return (

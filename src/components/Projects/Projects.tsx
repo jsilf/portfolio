@@ -3,46 +3,52 @@ import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { IProject } from "../../models/IProject";
 import { Project } from "../../models/Project";
-import styled from "styled-components";
-import map from "../../assets/interactive-map.png";
-import logo from "../../assets/Logo.svg";
+import map from "../../assets/interactive-map.webp";
+import portfolio from "../../assets/portfolio.webp";
+import notes from "../../assets/notes.webp";
+import oldPortfolio from "../../assets/old_portfolio.webp";
+import wip from "../../assets/Logo.svg";
+import { Button } from "./Button";
 
-const num = 1;
+const mapId = Math.random();
 
 const images = [
   {
-    id: num + 1,
+    id: mapId,
     title: "portfolio",
-    image: logo,
-    techStack: "React, Vite, TypeScript",
+    image: portfolio,
+    techStack: "React, TypeScript, SCSS",
   },
   {
-    id: num + 1,
+    id: mapId,
     title: "CV",
-    image: logo,
-    techStack: "HTML, SCSS, JavaScript",
+    image: oldPortfolio,
+    techStack: "Old portfolio - HTML, SCSS, JavaScript",
   },
-
   {
-    id: num + 1,
+    id: mapId,
     title: "interactive-tourist-map",
     image: map,
-    techStack: "React, TypeScript, Node.js, Express.js, MongoDB ",
+    techStack: "React, TypeScript, SCSS, Node.js, Express.js, MongoDB",
+  },
+  ,
+  {
+    id: mapId,
+    title: "pepp-app",
+    image: wip,
+    techStack: "Work in progress - Next.js, TypeScript, Node.js, MongoDB",
+  },
+  {
+    id: mapId,
+    title: "note-to-self",
+    image: notes,
+    techStack: "React, TypeScript, Node.js, Express.js, MongoDB",
   },
 ];
 
-const StyledButton = styled.button`
-  background: #041124;
-  color: #fff;
-  font-size: 1.125rem;
-  border-radius: 50px;
-  padding: 1rem;
-  margin-top: 2rem;
-`;
-
 export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
-  const projectPerRow = 3;
+  const projectPerRow = 2;
   const [nextRow, setNextRow] = useState(projectPerRow);
   const filterFromApi = "jsilf";
 
@@ -58,6 +64,7 @@ export const Projects = () => {
             project.homepage
           );
         });
+
         const filtered = projectsFromApi.filter(
           (proj) => proj.name !== filterFromApi
         );
@@ -103,7 +110,7 @@ export const Projects = () => {
         <div className="display-flex display-flex-col align-center">
           <h2>portfolio</h2>
           <div className="projects">
-            {project?.slice(0, nextRow)?.map((p) => {
+            {project?.slice(0, nextRow).map((p) => {
               return (
                 <motion.div
                   key={p.id}
@@ -117,15 +124,15 @@ export const Projects = () => {
                       href={p.homepage}
                       target="_blank"
                       rel="noopener noreferrer">
-                      {images?.map((img) => {
+                      {images.map((img) => {
                         return (
-                          img.title === p.name && (
+                          img?.title === p.name && (
                             <div
                               key={img.id}
                               className="project-card display-flex justify-center align-center">
                               <img src={img.image} width={600} height={400} />
                               <p className="project-card_text">
-                                Tech stack: {img.techStack}
+                                {img.techStack}
                               </p>
                             </div>
                           )
@@ -138,9 +145,7 @@ export const Projects = () => {
             })}
           </div>
           {nextRow < project.length && (
-            <StyledButton onClick={handleMoreProjects}>
-              Load more projects
-            </StyledButton>
+            <Button click={handleMoreProjects}>Load more projects</Button>
           )}
         </div>
       </section>
