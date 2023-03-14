@@ -16,13 +16,9 @@ const StyledLayout = styled.div`
   background: ${(props: IStyledAppProps) => props.theme.background};
   color: ${(props: IStyledAppProps) => props.theme.color};
 
-  /* a {
-    color: ${(props: IStyledAppProps) => props.theme.color};
-  } */
-
-  /* .burger {
+  .burger {
     background: ${(props: IStyledAppProps) => props.theme.color};
-  } */
+  }
 
   nav li a {
     color: ${(props: IStyledAppProps) => props.theme.color};
@@ -54,6 +50,13 @@ const StyledLayout = styled.div`
     a {
       color: ${(props: IStyledAppProps) => props.theme.background};
     }
+  }
+
+  .icon {
+    color: ${(props: IStyledAppProps) => props.theme.color};
+  }
+  .icon:hover {
+    border: 3px solid ${(props: IStyledAppProps) => props.theme.color};
   }
 `;
 

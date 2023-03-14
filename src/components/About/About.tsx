@@ -13,10 +13,9 @@ export const About = () => {
               but also work on getting better at what I already know.
             </p>
             <p>
-              The tech I currently work with consists of HTML5, CSS3/SCSS,
-              JavaScript, TypeScript, Node.js. Frameworks and libraries such as
-              React.js, Next.js, Express.js, Angular. Databases MongoDB and
-              MySQL.
+              The tech I currently work with is HTML5, CSS3/SCSS, JavaScript,
+              TypeScript, Node.js. Frameworks and libraries such as React.js,
+              Next.js, Express.js. Databases MongoDB and MySQL.
             </p>
           </div>
         </div>

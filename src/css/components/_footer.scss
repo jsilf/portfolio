@@ -25,14 +25,14 @@ footer {
     height: 40px;
     margin-right: 1rem;
     padding: 2px;
-    color: $color-primary-darkblue;
+    color: $color-white;
     border: 3px solid transparent;
     outline: 3px solid transparent;
     border-radius: 10px;
     transition: all 0.2s ease-in;
 
     &:hover {
-      border: 3px solid $color-primary-darkblue;
+      border: 3px solid $color-white;
       outline: 3px solid transparent;
     }
   }

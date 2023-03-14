@@ -22,7 +22,7 @@ const StyledBurger = styled.div<IOpenProps>`
     margin: 6px 0;
     transform-origin: 2px;
     transition: all 0.3s linear;
-    background-color: ${({ open }) => (open ? "#fff" : "#041124")};
+    background-color: ${({ open }) => (open ? "#fff !important" : "#041124")};
 
     &:nth-child(1) {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};

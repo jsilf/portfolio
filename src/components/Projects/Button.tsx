@@ -8,7 +8,21 @@ const StyledButton = styled.button`
   padding: 1rem;
   margin-top: 4rem;
   border: none;
+  animation: pulse 1.8s infinite;
+  box-shadow: 0 0 0 0.8rem transparent;
+  transition: all 0.25s ease;
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 #041124;
+    }
+  }
+  &:hover {
+    background: #fff;
+    color: #041124;
+  }
 `;
+
 interface IButton {
   click: () => void;
   children: string;

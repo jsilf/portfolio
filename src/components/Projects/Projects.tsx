@@ -21,12 +21,6 @@ const images = [
   },
   {
     id: mapId,
-    title: "CV",
-    image: oldPortfolio,
-    techStack: "Old portfolio - HTML, SCSS, JavaScript",
-  },
-  {
-    id: mapId,
     title: "interactive-tourist-map",
     image: map,
     techStack: "React, TypeScript, SCSS, Node.js, Express.js, MongoDB",
@@ -42,7 +36,8 @@ const images = [
     id: mapId,
     title: "note-to-self",
     image: notes,
-    techStack: "React, TypeScript, Node.js, Express.js, MongoDB",
+    techStack:
+      "Work in progress - React, TypeScript, Node.js, Express.js, MongoDB",
   },
 ];
 
@@ -122,6 +117,7 @@ export const Projects = () => {
                     whileHover={{ scale: 1.1 }}>
                     <a
                       href={p.homepage}
+                      title={p.name}
                       target="_blank"
                       rel="noopener noreferrer">
                       {images.map((img) => {
@@ -137,7 +133,7 @@ export const Projects = () => {
                                 alt="project image"
                               />
                               <p className="project-card_text">
-                                {img.techStack}
+                                {p.name} | {img.techStack}
                               </p>
                             </div>
                           )
