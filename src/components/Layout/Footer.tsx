@@ -13,18 +13,21 @@ export const Footer = () => {
       <div className="content display-flex justify-between">
         <div>
           <a
+            title="Github"
             href="https://github.com/jsilf"
             target="_blank"
             rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithubSquare} className="icon" />
           </a>
           <a
+            title="LinkedIn"
             href="https://www.linkedin.com/in/jessica-silfver"
             target="_blank"
             rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} className="icon" />
           </a>
           <a
+            title="E-mail"
             href="mailto:jesilfver@gmail.com"
             target="_blank"
             rel="noopener noreferrer">
@@ -37,7 +40,7 @@ export const Footer = () => {
           </p>
         </div>
         <div>
-          <HashLink smooth to={"/#top"}>
+          <HashLink smooth to={"/#top"} title="To the top">
             <span className="arrow-up"></span>
           </HashLink>
         </div>

@@ -15,9 +15,9 @@ export const Hero = () => {
           </div>
 
           <div className="hero-image-block display-flex display-flex-col align-center">
-            <figure>
+            <figure className="hero-image">
               <motion.div whileHover={{ scale: 1.1 }}>
-                <img src={profilePic} alt="profile picture" />
+                <img src={profilePic} alt="Profile picture" />
               </motion.div>
             </figure>
 

@@ -116,7 +116,7 @@ export const Projects = () => {
                     variants={cardVariants}
                     whileHover={{ scale: 1.1 }}>
                     <a
-                      href={p.homepage}
+                      href={p.homepage !== null ? p.homepage : "#"}
                       title={p.name}
                       target="_blank"
                       rel="noopener noreferrer">
