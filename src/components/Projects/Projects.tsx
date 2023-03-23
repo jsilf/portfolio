@@ -6,8 +6,7 @@ import { Project } from "../../models/Project";
 import map from "../../assets/interactive-map.webp";
 import portfolio from "../../assets/portfolio.webp";
 import notes from "../../assets/notes.webp";
-import oldPortfolio from "../../assets/old_portfolio.webp";
-import wip from "../../assets/Logo.svg";
+import wip from "../../assets/WIP.webp";
 import { Button } from "./Button";
 
 const mapId = Math.random();

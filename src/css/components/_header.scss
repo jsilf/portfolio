@@ -16,11 +16,13 @@ header {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    align-items: center;
   }
 
   nav {
-    width: 100%;
-    transition: height 0.2s ease-in-out;
+    @include small-phone {
+      height: 50vh !important;
+    }
 
     ul {
       display: flex;
@@ -55,11 +57,12 @@ header {
           content: "";
           position: absolute;
           bottom: 0;
-          left: 0;
+          left: 50%;
+          transform: translateX(-50%);
           width: 0;
           height: 6px;
           background-color: $color-primary-darkblue;
-          transition: width 0.25s ease-in-out;
+          transition: width 0.35s cubic-bezier(0.17, 1, 0.5, 1);
         }
 
         a:hover {
@@ -73,8 +76,8 @@ header {
 }
 
 .switch {
-  width: 75px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
   background-color: $color-primary-darkblue;
   display: flex;
   justify-content: flex-start;
@@ -97,13 +100,8 @@ header {
 }
 
 .handle {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-color: $color-white;
   border-radius: 50%;
-
-  @include phone {
-    width: 20px;
-    height: 20px;
-  }
 }
