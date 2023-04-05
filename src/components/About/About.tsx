@@ -26,7 +26,7 @@ export const About = () => {
           <motion.div variants={cardVariants} className="text-block">
             <h2 className="about-title">about</h2>
             <p>
-              I am a frontend developer currently doing my final internship at
+              I am a frontend developer currently doing my final course at
               Medieinstitutet, graduating in june 2023. These past two years of
               studying I have learned a lot about problem solving, how to plan
               and design my own projects, work with git in teams, and build
