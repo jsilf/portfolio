@@ -76,7 +76,7 @@ export const Projects = () => {
         }
         console.log(error.config);
       });
-  }, []);
+  }, [project]);
 
   const handleMoreProjects = () => {
     setNextRow(nextRow + projectPerRow);

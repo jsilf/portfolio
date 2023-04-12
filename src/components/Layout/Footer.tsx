@@ -10,7 +10,7 @@ export const Footer = () => {
 
   return (
     <footer>
-      <div className="content display-flex justify-between">
+      <div className="content display-flex justify-between align-center">
         <div>
           <a
             title="Github"
