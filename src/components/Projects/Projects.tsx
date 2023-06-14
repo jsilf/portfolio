@@ -71,6 +71,7 @@ export const Projects = () => {
           <h2>portfolio</h2>
           <div className="projects">
             {project?.slice(0, nextRow).map((p) => {
+              console.log(p.homepage);
               return (
                 <motion.div
                   key={p.id}
@@ -81,7 +82,7 @@ export const Projects = () => {
                     variants={cardVariants}
                     whileHover={{ scale: 1.1 }}>
                     <a
-                      href={p.homepage !== null ? p.homepage : p.html_url}
+                      href={p.homepage !== "" ? p.homepage : p.html_url}
                       title={p.name}
                       target={p.homepage !== null ? "_blank" : ""}
                       rel="noopener noreferrer">
