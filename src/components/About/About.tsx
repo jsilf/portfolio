@@ -26,14 +26,15 @@ export const About = () => {
           <motion.div variants={cardVariants} className="text-block">
             <h2 className="about-title">about</h2>
             <p>
-              I am a frontend developer currently doing my final course at
-              Medieinstitutet, graduating in june 2023. These past two years of
+              I am a frontend developer who recently graduated from
+              Medieinstitutet in Stockholm, Sweden. These past two years of
               studying I have learned a lot about problem solving, how to plan
               and design my own projects, work with git in teams, and build
               websites with libraries and frameworks. I am constantly learning
               new things and growing in my role and I am excited to take on new
-              challenges.
+              challenges. My ambition is to become a fullstack developer.
             </p>
+            <br />
             <p>
               The tech I currently work with is HTML5, CSS3/SCSS, JavaScript,
               TypeScript, Node.js. Frameworks and libraries such as React.js,

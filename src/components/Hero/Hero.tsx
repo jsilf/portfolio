@@ -19,7 +19,7 @@ export const Hero = () => {
               <span className="hero-text-block_span">Hi, i'm</span>Jessica, I
               love nature, music and bibimbap.
             </h1>
-            <p>And of course build and design things for the web!</p>
+            <span>And of course build and design things for the web!</span>
           </div>
 
           <motion.div className="hero-image-block display-flex display-flex-col align-center">
@@ -29,7 +29,7 @@ export const Hero = () => {
               </motion.div>
             </figure>
 
-            <p className="hero-image-block_text">Frontend Developer</p>
+            <span className="hero-image-block_text">Frontend Developer</span>
           </motion.div>
         </motion.div>
         <span className="arrow-down"></span>

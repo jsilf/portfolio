@@ -3,48 +3,30 @@ import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { IProject } from "../../models/IProject";
 import { Project } from "../../models/Project";
-import map from "../../assets/interactive-map.webp";
-import portfolio from "../../assets/portfolio.webp";
-import notes from "../../assets/notes.webp";
-import wip from "../../assets/WIP.webp";
 import { Button } from "./Button";
+import { externalProjects, projectList } from "./ProjectList";
 
-const mapId = Math.random();
-
-const images = [
-  {
-    id: mapId,
-    title: "portfolio",
-    image: portfolio,
-    techStack: "React, TypeScript, SCSS",
+const cardVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    y: 200,
   },
-  {
-    id: mapId,
-    title: "interactive-tourist-map",
-    image: map,
-    techStack: "React, TypeScript, SCSS, Node.js, Express.js, MongoDB",
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
   },
-  ,
-  {
-    id: mapId,
-    title: "pepp-app",
-    image: wip,
-    techStack: "Work in progress - Next.js, TypeScript, Node.js, MongoDB",
-  },
-  {
-    id: mapId,
-    title: "note-to-self",
-    image: notes,
-    techStack:
-      "Work in progress - React, TypeScript, Node.js, Express.js, MongoDB",
-  },
-];
+};
 
 export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
   const projectPerRow = 2;
   const [nextRow, setNextRow] = useState(projectPerRow);
-  const filterFromApi = "jsilf";
+  const filterFromApi = ["jsilf", "pepp-app"];
 
   useEffect(() => {
     axios
@@ -60,42 +42,26 @@ export const Projects = () => {
         });
 
         const filtered = projectsFromApi.filter(
-          (proj) => proj.name !== filterFromApi
+          (proj) => !filterFromApi.includes(proj.name)
         );
-        return setProject(filtered);
+        return setProject([...filtered, ...externalProjects]);
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.error(error.response.data);
+          // console.log(error.response.status);
+          // console.log(error.response.headers);
         } else if (error.request) {
-          console.log(error.request);
+          //console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          //console.log("Error", error.message);
         }
-        console.log(error.config);
+        //console.log(error.config);
       });
-  }, [project]);
+  }, []);
 
   const handleMoreProjects = () => {
     setNextRow(nextRow + projectPerRow);
-  };
-
-  const cardVariants: Variants = {
-    offscreen: {
-      opacity: 0,
-      y: 200,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
   };
 
   return (
@@ -115,11 +81,11 @@ export const Projects = () => {
                     variants={cardVariants}
                     whileHover={{ scale: 1.1 }}>
                     <a
-                      href={p.homepage !== null ? p.homepage : "#"}
+                      href={p.homepage !== null ? p.homepage : p.html_url}
                       title={p.name}
-                      target="_blank"
+                      target={p.homepage !== null ? "_blank" : ""}
                       rel="noopener noreferrer">
-                      {images.map((img) => {
+                      {projectList.map((img) => {
                         return (
                           img?.title === p.name && (
                             <div
@@ -129,7 +95,7 @@ export const Projects = () => {
                                 src={img.image}
                                 width={600}
                                 height={400}
-                                alt="project image"
+                                alt="Screenshot of project"
                               />
                               <p className="project-card_text">
                                 {p.name} | {img.techStack}
