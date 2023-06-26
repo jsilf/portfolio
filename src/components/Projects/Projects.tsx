@@ -71,7 +71,6 @@ export const Projects = () => {
           <h2>portfolio</h2>
           <div className="projects">
             {project?.slice(0, nextRow).map((p) => {
-              console.log(p.homepage);
               return (
                 <motion.div
                   key={p.id}

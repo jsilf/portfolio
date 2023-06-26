@@ -53,8 +53,8 @@ export const externalProjects: IProject[] = [
   {
     id: 1234,
     name: "SMSLåntips",
-    html_url: "https://smslantips.com",
-    homepage: "https://smslantips.com",
+    html_url: "https://smslåntips.com",
+    homepage: "https://smslåntips.com",
   },
   {
     id: 2345,
