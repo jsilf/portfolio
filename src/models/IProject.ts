@@ -1,5 +1,5 @@
 export interface IProject {
-  id: number;
+  id: string;
   name: string;
   html_url: string;
   homepage: string;

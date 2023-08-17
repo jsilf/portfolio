@@ -29,7 +29,7 @@ export const About = () => {
               I am a frontend developer who recently graduated from
               Medieinstitutet in Stockholm, Sweden. These past two years of
               studying I have learned a lot about problem solving, how to plan
-              and design my own projects, work with git in teams, and build
+              and design my own projects, work with git in teams and build
               websites with libraries and frameworks. I am constantly learning
               new things and growing in my role and I am excited to take on new
               challenges. My ambition is to become a fullstack developer.
@@ -38,7 +38,7 @@ export const About = () => {
             <p>
               The tech I currently work with is HTML5, CSS3/SCSS, JavaScript,
               TypeScript, Node.js. Frameworks and libraries such as React.js,
-              Next.js, Express.js. Databases MongoDB and MySQL.
+              Next.js, Express.js. Database MongoDB.
             </p>
           </motion.div>
         </motion.div>

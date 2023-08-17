@@ -24,7 +24,7 @@ const cardVariants: Variants = {
 
 export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
-  const projectPerRow = 2;
+  const projectPerRow = 4;
   const [nextRow, setNextRow] = useState(projectPerRow);
   const filterFromApi = ["jsilf", "pepp-app"];
 
@@ -44,20 +44,20 @@ export const Projects = () => {
         const filtered = projectsFromApi.filter(
           (proj) => !filterFromApi.includes(proj.name)
         );
-        return setProject([...filtered, ...externalProjects]);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.error(error.response.data);
-          // console.log(error.response.status);
-          // console.log(error.response.headers);
-        } else if (error.request) {
-          //console.log(error.request);
-        } else {
-          //console.log("Error", error.message);
-        }
-        //console.log(error.config);
+        return setProject([...externalProjects, ...filtered]);
       });
+    // .catch(function (error) {
+    //   if (error.response) {
+    //     console.error(error.response.data);
+    //     // console.log(error.response.status);
+    //     // console.log(error.response.headers);
+    //   } else if (error.request) {
+    //     console.log(error.request);
+    //   } else {
+    //     console.log("Error", error.message);
+    //   }
+    //   console.log(error.config);
+    // });
   }, []);
 
   const handleMoreProjects = () => {
@@ -81,7 +81,7 @@ export const Projects = () => {
                     variants={cardVariants}
                     whileHover={{ scale: 1.1 }}>
                     <a
-                      href={p.homepage !== "" ? p.homepage : p.html_url}
+                      href={p.homepage ? p.homepage : p.html_url}
                       title={p.name}
                       target={p.homepage !== null ? "_blank" : ""}
                       rel="noopener noreferrer">
