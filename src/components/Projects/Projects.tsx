@@ -83,7 +83,7 @@ export const Projects = () => {
                     <a
                       href={p.homepage ? p.homepage : p.html_url}
                       title={p.name}
-                      target={p.homepage !== null ? "_blank" : ""}
+                      target="_blank"
                       rel="noopener noreferrer">
                       {projectList.map((img) => {
                         return (
