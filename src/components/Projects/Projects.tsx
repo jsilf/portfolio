@@ -26,7 +26,7 @@ export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
   const projectPerRow = 4;
   const [nextRow, setNextRow] = useState(projectPerRow);
-  const filterFromApi = ["jsilf", "pepp-app"];
+  const filterFromApi = ["jsilf"];
 
   useEffect(() => {
     axios
