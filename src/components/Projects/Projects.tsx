@@ -113,7 +113,7 @@ export const Projects = () => {
                                 src={img.image}
                                 width={600}
                                 height={400}
-                                alt="Screenshot of project"
+                                alt={`Screenshot of project ${p.name}`}
                               />
                             </div>
                           )

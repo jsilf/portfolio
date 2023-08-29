@@ -18,19 +18,19 @@ export const Footer = () => {
             title={"Github"}
             href={"https://github.com/jsilf"}
             faIcon={faGithubSquare}
-            classname="icon"
+            classname="icon icon-footer"
           />
           <Icon
             title={"LinkedIn"}
             href={"https://www.linkedin.com/in/jessica-silfver"}
             faIcon={faLinkedin}
-            classname="icon"
+            classname="icon icon-footer"
           />
           <Icon
             title={"E-mail"}
             href={"mailto:jesilfver@gmail.com"}
             faIcon={faEnvelope}
-            classname="icon"
+            classname="icon icon-footer"
           />
         </div>
         <div>
