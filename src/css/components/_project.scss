@@ -1,5 +1,6 @@
 #portfolio {
   margin-top: 4rem;
+  width: 1260px;
 
   @include tablet {
     margin-top: 0;
@@ -11,50 +12,52 @@
   padding-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
+  // column-gap: 20px;
   row-gap: 50px;
   justify-items: center;
+  align-items: baseline;
 
   @include laptop {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .project-wrapper {
+    max-width: 450px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .project-card {
-  height: 400px;
-  width: 600px;
+  height: 300px;
+  width: 100%;
   border-radius: 10px;
   text-align: center;
-  background: $color-primary-darkblue;
+  background: $color-primary-dark;
   position: relative;
   box-shadow: none;
 
   img {
-    position: absolute;
     border-radius: 10px;
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
+}
 
-  &_text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.project-tag_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+
+  .tag {
     font-size: $font-xsmall;
-    background-color: rgba($color-primary-darkblue, 0.9);
-    padding: 0.5rem 0.8rem;
-    width: 100%;
-    border-radius: 0 0 9.5px 9.5px;
-    text-transform: capitalize;
-  }
-
-  @include phone {
-    width: 300px;
-    height: 300px;
-  }
-  @include small-phone {
-    width: 250px;
-    height: 300px;
+    background-color: rgba($color-primary-dark, 0.9);
+    padding: 0.5rem;
+    margin: 0.3rem;
+    border-radius: 22px;
+    text-transform: lowercase;
   }
 }

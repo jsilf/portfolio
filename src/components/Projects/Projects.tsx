@@ -1,26 +1,26 @@
 import axios from "axios";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
-import { IProject } from "../../models/IProject";
-import { Project } from "../../models/Project";
-import { Button } from "./Button";
+import { Button } from "../Parts/Button";
 import { externalProjects, projectList } from "./ProjectList";
 
-const cardVariants: Variants = {
-  offscreen: {
-    opacity: 0,
-    y: 200,
-  },
-  onscreen: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
+export type ProjectType = {
+  id: string;
+  name: string;
+  html_url: string;
+  homepage: string;
+  topics: string[];
 };
+
+class Project {
+  constructor(
+    public id: string,
+    public name: string,
+    public html_url: string,
+    public homepage: string,
+    public topics: string[]
+  ) {}
+}
 
 export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
@@ -30,14 +30,15 @@ export const Projects = () => {
 
   useEffect(() => {
     axios
-      .get<IProject[]>("https://api.github.com/users/jsilf/repos")
+      .get<ProjectType[]>("https://api.github.com/users/jsilf/repos")
       .then((response) => {
-        let projectsFromApi = response.data.map((project: IProject) => {
+        let projectsFromApi = response.data.map((project: ProjectType) => {
           return new Project(
             project.id,
             project.name,
             project.html_url,
-            project.homepage
+            project.homepage,
+            project.topics
           );
         });
 
@@ -64,6 +65,22 @@ export const Projects = () => {
     setNextRow(nextRow + projectPerRow);
   };
 
+  const cardVariants: Variants = {
+    offscreen: {
+      opacity: 0,
+      y: 200,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <>
       <section className="standard" id="portfolio">
@@ -73,6 +90,7 @@ export const Projects = () => {
             {project?.slice(0, nextRow).map((p) => {
               return (
                 <motion.div
+                  className="project-wrapper"
                   key={p.id}
                   initial="offscreen"
                   whileInView="onscreen"
@@ -97,21 +115,27 @@ export const Projects = () => {
                                 height={400}
                                 alt="Screenshot of project"
                               />
-                              <p className="project-card_text">
-                                {p.name} | {img.techStack}
-                              </p>
                             </div>
                           )
                         );
                       })}
                     </a>
                   </motion.div>
+                  <div className="project-tag_wrap">
+                    {p.topics?.map((tag, i) => {
+                      return (
+                        <span className="tag" key={i}>
+                          {tag}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </motion.div>
               );
             })}
           </div>
           {nextRow < project.length && (
-            <Button click={handleMoreProjects}>Load more projects</Button>
+            <Button click={handleMoreProjects}>Show more</Button>
           )}
         </div>
       </section>

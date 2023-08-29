@@ -3,19 +3,17 @@ $color-black: #0f0f0f;
 $color-white: #fff;
 $color-grey: #cfcfcf;
 
-$color-primary-blue: #1d3557;
-$color-primary-darkblue: #041124;
-$color-primary-purple: #7a0058;
-$color-primary-red: #942b3b;
+$color-primary-dark: rgb(22, 27, 29);
+$color-primary: rgb(42, 54, 59);
+$color-secondary: rgb(232, 74, 95);
 
 /* Fonts */
-$font-h1: "Poiret One", sans-serif;
-$font-header: "League Spartan", sans-serif;
-$font-main: "Lato", sans-serif;
+$font-header: "Pompiere", cursive;
+$font-main: "Roboto", sans-serif;
 
 $font-xlarge: 6rem;
 $font-large: 3rem;
 $font-medium: 2.25rem;
 $font-sm: 1.8rem;
-$font-small: 1.125rem;
-$font-xsmall: 0.9rem;
+$font-small: 1rem;
+$font-xsmall: 0.8rem;

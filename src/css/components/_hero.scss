@@ -40,13 +40,13 @@
     &_span {
       line-height: 1.6;
       letter-spacing: 0.08em;
-      font-size: 20px;
+      font-size: $font-small;
       position: absolute;
       top: -50px;
       left: 0;
 
       @include phone {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
         top: -40px;
       }
     }
@@ -77,21 +77,6 @@
 
     &_text {
       padding-top: 1rem;
-    }
-  }
-  .arrow-down {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
-    margin-left: -12px;
-    transform: rotate(-45deg);
-    animation: arrow 1.5s infinite;
-
-    @include phone {
-      display: none;
     }
   }
 }

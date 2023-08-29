@@ -39,20 +39,6 @@ header {
         margin: 0 2rem;
         position: relative;
 
-        &:after {
-          content: "|";
-          top: 0;
-          right: -45px;
-          position: absolute;
-        }
-
-        &:last-child:after {
-          content: "";
-          top: 0;
-          right: 0;
-          position: absolute;
-        }
-
         a:before {
           content: "";
           position: absolute;
@@ -61,7 +47,7 @@ header {
           transform: translateX(-50%);
           width: 0;
           height: 6px;
-          background-color: $color-primary-darkblue;
+          background-color: $color-primary-dark;
           transition: width 0.35s cubic-bezier(0.17, 1, 0.5, 1);
         }
 
@@ -73,12 +59,35 @@ header {
       }
     }
   }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    padding: 2px;
+    color: $color-white;
+    border: 3px solid transparent;
+    outline: 3px solid transparent;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      border: 3px solid $color-white;
+      outline: 3px solid transparent;
+    }
+  }
+}
+
+.logo {
+  @include phone {
+    display: none;
+  }
 }
 
 .switch {
   width: 60px;
   height: 30px;
-  background-color: $color-primary-darkblue;
+  background-color: $color-primary-dark;
   display: flex;
   justify-content: flex-start;
   align-items: center;

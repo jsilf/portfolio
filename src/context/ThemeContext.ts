@@ -9,10 +9,13 @@ interface IThemes {
   light: ITheme;
 }
 
+export const primaryDarkColor: string = "#161C1E";
+export const primaryColor: string = "#2a363b";
+export const secondaryColor: string = "#e84a5f";
+
 export const themes: IThemes = {
   dark: {
-    background:
-      "linear-gradient(180deg, #1d3557 0%, #7a0058 74.48%, #942b3b 100%)",
+    background: primaryColor,
     color: "#fff",
   },
   light: {
