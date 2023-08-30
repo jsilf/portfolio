@@ -1,10 +1,11 @@
-import profilePic from "../../assets/profile_pic.webp";
+import profilePic from "../../assets/JS.png";
 import { motion } from "framer-motion";
+import { Arrow } from "../Parts/Arrow";
 
 export const Hero = () => {
   return (
     <>
-      <section className="hero">
+      <section className="hero standard">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -32,7 +33,7 @@ export const Hero = () => {
             <span className="hero-image-block_text">Frontend Developer</span>
           </motion.div>
         </motion.div>
-        <span className="arrow-down"></span>
+        <Arrow classname="arrow-down" />
       </section>
     </>
   );

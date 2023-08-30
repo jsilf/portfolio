@@ -1,68 +1,43 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
-import { ITheme, themes } from "../../context/ThemeContext";
+import { ThemeType as Theme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
-import { Nav } from "./Nav";
-import { ThemedButton } from "./ThemedButton";
-import logo from "../../assets/Logo.svg";
-import { HashLink } from "react-router-hash-link";
+import { useMousePosition } from "../../hooks/useMousePosition";
+import { Header } from "./Header";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
 
-interface IStyledAppProps {
-  theme: ITheme;
-}
+export type StyledTheme = {
+  theme: Theme;
+};
 
-const StyledLayout = styled.div`
-  background: ${(props: IStyledAppProps) => props.theme.background};
-  color: ${(props: IStyledAppProps) => props.theme.color};
+type StyledProps = { theme: Theme; x: number; y: number };
 
-  .burger {
-    background: ${(props: IStyledAppProps) => props.theme.color};
-  }
-
-  nav li a {
-    color: ${(props: IStyledAppProps) => props.theme.color};
-  }
+const StyledLayout = styled.div<StyledProps>`
+  color: ${(props: StyledProps) => props.theme.color};
+  background: radial-gradient(
+    400px at ${(props: StyledProps) => props.x}px
+      ${(props: StyledProps) => props.y}px,
+    rgb(232, 74, 95) -40%,
+    ${(props: StyledProps) => props.theme.background} 80%
+  );
 
   @media screen and (max-width: 768px) {
-    nav li a {
-      color: ${(props: IStyledAppProps) => props.theme.background};
-    }
+    background-color: ${(props: StyledProps) =>
+      props.theme.background} !important;
   }
-
-  .arrow-down {
-    border-bottom: 2px solid ${(props: IStyledAppProps) => props.theme.color};
-    border-left: 2px solid ${(props: IStyledAppProps) => props.theme.color};
-  }
-
-  .arrow-up {
-    border-top: 2px solid ${(props: IStyledAppProps) => props.theme.color};
-    border-right: 2px solid ${(props: IStyledAppProps) => props.theme.color};
-  }
-
-  .project-card_text {
-    color: ${(props: IStyledAppProps) => props.theme.background};
-  }
-
-  .contact-text {
-    color: ${(props: IStyledAppProps) => props.theme.background};
-
-    a {
-      color: ${(props: IStyledAppProps) => props.theme.background};
-    }
-  }
-
-  .icon {
-    color: ${(props: IStyledAppProps) => props.theme.color};
-  }
-  .icon:hover {
-    border: 3px solid ${(props: IStyledAppProps) => props.theme.color};
+  nav li a {
+    color: ${(props: StyledProps) => props.theme.color};
+    transition: color 0.3 ease-in-out;
   }
 `;
 
 export const Layout = () => {
-  const [theme, setTheme] = useState<ITheme>(themes.dark);
+  const [theme, setTheme] = useState<Theme>(themes.dark);
   const [isOn, setIsOn] = useState(false);
+
+  const { x, y } = useMousePosition();
+  const { scrollX, scrollY } = useScrollPosition();
 
   const toggleTheme = () => {
     setIsOn(!isOn);
@@ -75,16 +50,8 @@ export const Layout = () => {
 
   return (
     <ThemeContext.Provider value={theme}>
-      <StyledLayout>
-        <header id="top">
-          <div className="inner">
-            <HashLink smooth to={"/"}>
-              <img src={logo} width={70} height={70} alt="logga" />
-            </HashLink>
-            <Nav></Nav>
-            <ThemedButton isOn={isOn} onClick={toggleTheme}></ThemedButton>
-          </div>
-        </header>
+      <StyledLayout y={y + scrollY} x={x + scrollX}>
+        <Header setTheme={toggleTheme} themeIsOn={isOn} />
         <main>
           <Outlet />
         </main>

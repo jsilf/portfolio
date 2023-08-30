@@ -4,57 +4,59 @@
   @include tablet {
     margin-top: 0;
   }
-}
 
-.projects {
-  width: 100%;
-  padding-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  row-gap: 50px;
-  justify-items: center;
-
-  @include laptop {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.project-card {
-  height: 400px;
-  width: 600px;
-  border-radius: 10px;
-  text-align: center;
-  background: $color-primary-darkblue;
-  position: relative;
-  box-shadow: none;
-
-  img {
-    position: absolute;
-    border-radius: 10px;
+  .projects {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    justify-items: center;
+    align-items: baseline;
 
-  &_text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: $font-xsmall;
-    background-color: rgba($color-primary-darkblue, 0.9);
-    padding: 0.5rem 0.8rem;
-    width: 100%;
-    border-radius: 0 0 9.5px 9.5px;
-    text-transform: capitalize;
-  }
+    @include laptop {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
-  @include phone {
-    width: 300px;
-    height: 300px;
-  }
-  @include small-phone {
-    width: 250px;
-    height: 300px;
+    .project-wrapper {
+      max-width: 450px;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-card {
+      height: 300px;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      background: $color-primary-dark;
+      position: relative;
+      box-shadow: none;
+
+      img {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .project-tag_wrap {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 1em 0;
+
+      .tag {
+        font-size: $font-xsmall;
+        background-color: rgba($color-primary-dark, 0.9);
+        color: $color-white;
+        padding: 0.5rem;
+        margin: 0.3rem;
+        border-radius: 22px;
+        text-transform: lowercase;
+      }
+    }
   }
 }

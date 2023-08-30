@@ -1,47 +1,61 @@
 import styled from "styled-components";
+import { ThemeType, primaryDarkColor } from "../../context/ThemeContext";
 
-export interface IOpenProps {
+export type burgerProps = {
   open: boolean;
   click?: () => void;
-}
+  theme?: ThemeType;
+};
 
-const StyledBurger = styled.div<IOpenProps>`
+const StyledBurger = styled.div<burgerProps>`
   display: none;
 
   @media screen and (max-width: 768px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     position: absolute;
     top: 30px;
     right: 30px;
+    z-index: 200;
   }
 
   .burger {
-    width: 40px;
-    height: 6px;
+    display: block;
+    height: 4px;
     border-radius: 25px;
-    margin: 6px 0;
+    margin: 3px 0;
     transform-origin: 2px;
     transition: all 0.3s linear;
-    background-color: ${({ open }) => (open ? "#fff !important" : "#041124")};
+    background: ${({ open }) =>
+      open ? "#fff" : (props: burgerProps) => props.theme?.primaryColor};
 
     &:nth-child(1) {
+      width: ${({ open }) => (open ? "45px" : "46px")};
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
     }
     &:nth-child(2) {
+      width: ${({ open }) => (open ? "0" : "35px")};
       opacity: ${({ open }) => (open ? 0 : 1)};
     }
     &:nth-child(3) {
+      width: ${({ open }) => (open ? "0" : "44px")};
+      opacity: ${({ open }) => (open ? 0 : 1)};
+    }
+    &:nth-child(4) {
+      width: ${({ open }) => (open ? "45px" : "40px")};
       transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
 `;
 
-export const Burger = ({ open, click }: IOpenProps) => {
+export const Burger = ({ open, click }: burgerProps) => {
   return (
     <StyledBurger open={open} onClick={click}>
-      <div className="burger"></div>
-      <div className="burger"></div>
-      <div className="burger"></div>
+      <span className="burger"></span>
+      <span className="burger"></span>
+      <span className="burger"></span>
+      <span className="burger"></span>
     </StyledBurger>
   );
 };

@@ -1,24 +1,30 @@
 import React from "react";
 
-export interface ITheme {
+export type ThemeType = {
   background: string;
   color: string;
-}
-interface IThemes {
-  dark: ITheme;
-  light: ITheme;
-}
+  primaryColor: string;
+};
+type Themes = {
+  dark: ThemeType;
+  light: ThemeType;
+};
 
-export const themes: IThemes = {
+export const primaryDarkColor: string = "#161C1E";
+export const primaryColor: string = "#2a363b";
+export const secondaryColor: string = "#e84a5f";
+
+export const themes: Themes = {
   dark: {
-    background:
-      "linear-gradient(180deg, #1d3557 0%, #7a0058 74.48%, #942b3b 100%)",
+    background: primaryColor,
     color: "#fff",
+    primaryColor: "#fff",
   },
   light: {
     background: "#fff",
     color: "#000",
+    primaryColor: primaryDarkColor,
   },
 };
 
-export const ThemeContext = React.createContext<ITheme>(themes.dark);
+export const ThemeContext = React.createContext<ThemeType>(themes.dark);

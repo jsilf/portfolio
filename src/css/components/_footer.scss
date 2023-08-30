@@ -19,34 +19,4 @@ footer {
       font-size: 12px;
     }
   }
-
-  .icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 1rem;
-    padding: 2px;
-    color: $color-white;
-    border: 3px solid transparent;
-    outline: 3px solid transparent;
-    border-radius: 10px;
-    transition: all 0.2s ease-in;
-
-    &:hover {
-      border: 3px solid $color-white;
-      outline: 3px solid transparent;
-    }
-  }
-
-  .arrow-up {
-    width: 30px;
-    height: 30px;
-    transform: rotate(-45deg) translate(0);
-    display: block;
-    background: transparent;
-    transition: transform 0.4s ease-in;
-
-    &:hover {
-      transform: rotate(-45deg) translate(10px, -10px);
-    }
-  }
 }

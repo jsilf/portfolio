@@ -1,57 +1,47 @@
 header {
-  padding: 30px 0;
+  padding: 2rem 60px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   position: relative;
 
-  @include laptop {
-    padding: 30px 60px;
-  }
-
   @include phone {
-    padding: 1rem;
+    padding: 1.4rem;
   }
 
-  .inner {
+  .logo-mobile img {
+    display: none;
+    @include phone {
+      display: block;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  .inner-nav {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    align-items: center;
-  }
+    justify-content: space-evenly;
 
-  nav {
-    @include small-phone {
-      height: 50vh !important;
+    .logo {
+      img {
+        @include phone {
+          display: none;
+        }
+      }
     }
 
     ul {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
       list-style-type: none;
-      font-size: $font-medium;
+      font-size: $font-large;
       font-family: $font-header;
       font-weight: 100;
-      letter-spacing: 0.13em;
-      line-height: 56px;
 
       li {
-        margin: 0 2rem;
         position: relative;
-
-        &:after {
-          content: "|";
-          top: 0;
-          right: -45px;
-          position: absolute;
-        }
-
-        &:last-child:after {
-          content: "";
-          top: 0;
-          right: 0;
-          position: absolute;
-        }
+        margin-left: 5rem;
 
         a:before {
           content: "";
@@ -61,7 +51,7 @@ header {
           transform: translateX(-50%);
           width: 0;
           height: 6px;
-          background-color: $color-primary-darkblue;
+          background-color: $color-secondary;
           transition: width 0.35s cubic-bezier(0.17, 1, 0.5, 1);
         }
 
@@ -73,35 +63,9 @@ header {
       }
     }
   }
-}
 
-.switch {
-  width: 60px;
-  height: 30px;
-  background-color: $color-primary-darkblue;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 50px;
-  padding: 1rem 0.5rem;
-  cursor: pointer;
-
-  @include phone {
-    width: 60px;
-    height: 20px;
-    position: absolute;
-    top: 35px;
-    right: 100px;
+  .inner-icons {
+    display: flex;
+    align-items: center;
   }
-}
-
-.switch[data-isOn="true"] {
-  justify-content: flex-end;
-}
-
-.handle {
-  width: 20px;
-  height: 20px;
-  background-color: $color-white;
-  border-radius: 50%;
 }

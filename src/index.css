@@ -1,23 +1,15 @@
 @font-face {
-  font-family: "Lato";
-  src: local("Lato"), url("./fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "League Spartan";
-  src: local("League Spartan"),
-    url("./fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf")
-      format("truetype");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Poiret One";
-  src: local("Poiret One"),
-    url("./fonts/Poiret_One/PoiretOne-Regular.ttf") format("truetype");
+  font-family: "Pompiere";
+  src: local("Pompiere"),
+    url("./fonts/Pompiere/Pompiere-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
