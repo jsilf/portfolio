@@ -28,39 +28,27 @@ const StyledNav = styled.nav<burgerProps>`
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 99;
-    background-color: ${({ open }) =>
-      !open ? "transparent" : primaryDarkColor};
-    width: ${({ open }) => (!open ? "100px" : "100%")};
-    height: ${({ open }) => (!open ? "100px" : "100vh")};
-    overflow: hidden;
-    transition: width 0.3s ease-in;
     justify-content: center;
     flex-direction: column;
+    z-index: 99;
+    background-color: ${primaryDarkColor};
+    transform: ${({ open }) => (!open ? "translateX(100%)" : "translateX(0)")};
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: transform 0.3s ease-in;
 
-    .switch {
-      background-color: ${({ open }) => (open ? "#fff" : primaryDarkColor)};
-    }
-    .handle {
-      background-color: ${({ open }) => (!open ? "#fff" : primaryDarkColor)};
+    .icon-header,
+    .lightbulb,
+    li a {
+      color: #fff !important;
     }
 
     .inner-nav {
-      display: ${({ open }) => (!open ? "none" : "flex")};
       margin-bottom: 1.5rem;
     }
 
-    .inner-icons {
-      display: ${({ open }) => (!open ? "none" : "flex")};
-      flex-direction: column-reverse;
-
-      .lightbulbs {
-        display: none;
-      }
-    }
-
     ul {
-      display: ${({ open }) => (!open ? "none" : "flex")};
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -83,8 +71,8 @@ export const Header = ({ setTheme, themeIsOn }: ThemeProps) => {
       <HashLink smooth to={"/"} className="logo-mobile">
         <img src={logo} width={90} height={90} alt="logga" />
       </HashLink>
+      <Burger open={isOpen} click={handleClick}></Burger>
       <StyledNav open={isOpen}>
-        <Burger open={isOpen} click={handleClick}></Burger>
         <div className="inner-nav">
           <HashLink smooth to={"/"} className="logo">
             <img src={logo} width={90} height={90} alt="logga" />

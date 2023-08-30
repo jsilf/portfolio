@@ -6,7 +6,7 @@ export const StyledCursor = styled.div`
   background: radial-gradient(
     400px at ${(props: StyledCursorProps) => props.left}
       ${(props: StyledCursorProps) => props.top},
-    /* rgba(103, 120, 128, 0.3), */ rgba(232, 74, 95, 0.2),
+    rgba(232, 74, 95, 0.2),
     transparent 90%
   );
   position: fixed;

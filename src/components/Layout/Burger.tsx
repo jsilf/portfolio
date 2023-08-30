@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { primaryDarkColor } from "../../context/ThemeContext";
+import { ThemeType, primaryDarkColor } from "../../context/ThemeContext";
 
 export type burgerProps = {
   open: boolean;
   click?: () => void;
+  theme?: ThemeType;
 };
 
 const StyledBurger = styled.div<burgerProps>`
@@ -16,6 +17,7 @@ const StyledBurger = styled.div<burgerProps>`
     position: absolute;
     top: 30px;
     right: 30px;
+    z-index: 200;
   }
 
   .burger {
@@ -25,7 +27,8 @@ const StyledBurger = styled.div<burgerProps>`
     margin: 3px 0;
     transform-origin: 2px;
     transition: all 0.3s linear;
-    background: ${({ open }) => (open ? "#fff" : primaryDarkColor)};
+    background: ${({ open }) =>
+      open ? "#fff" : (props: burgerProps) => props.theme?.primaryColor};
 
     &:nth-child(1) {
       width: ${({ open }) => (open ? "45px" : "46px")};

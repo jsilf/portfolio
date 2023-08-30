@@ -2,6 +2,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { secondaryColor } from "../../context/ThemeContext";
+import { StyledTheme } from "../Layout/Layout";
 
 type iconType = {
   title: string;
@@ -10,14 +11,14 @@ type iconType = {
   classname: string;
 };
 
-const StyledIcon = styled.a`
+const StyledIcon = styled.a<StyledTheme>`
   display: inline-block;
 
-  > .icon {
+  .icon {
     width: 40px;
     height: 40px;
     padding: 2px;
-    color: ${secondaryColor};
+    color: ${(props: StyledTheme) => props.theme.primaryColor};
     border: 3px solid transparent;
     outline: 3px solid transparent;
     border-radius: 10px;
@@ -28,14 +29,14 @@ const StyledIcon = styled.a`
       outline: 3px solid transparent;
     }
   }
-  > .icon-footer {
+  .icon-footer {
     margin-right: 0.7rem;
   }
-  > .icon-header {
-    margin: 0 1rem;
+  .icon-header {
+    margin: 0 0.4rem;
 
     @media screen and (max-width: 768px) {
-      margin: 1rem 0;
+      margin: 0.5rem;
     }
   }
 `;

@@ -3,35 +3,32 @@ import { Outlet } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
 import { ThemeType as Theme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
-import { StyledCursor } from "../Parts/Cursor";
 import { useMousePosition } from "../../hooks/useMousePosition";
 import { Header } from "./Header";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
 
-type StyledProps = { theme: Theme };
+export type StyledTheme = {
+  theme: Theme;
+};
 
-const StyledLayout = styled.div`
-  background: ${(props: StyledProps) => props.theme.background};
+type StyledProps = { theme: Theme; x: number; y: number };
+
+const StyledLayout = styled.div<StyledProps>`
   color: ${(props: StyledProps) => props.theme.color};
-
-  nav li a {
-    color: ${(props: StyledProps) => props.theme.color};
-  }
+  background: radial-gradient(
+    400px at ${(props: StyledProps) => props.x}px
+      ${(props: StyledProps) => props.y}px,
+    rgb(232, 74, 95) -40%,
+    ${(props: StyledProps) => props.theme.background} 80%
+  );
 
   @media screen and (max-width: 768px) {
-    nav li a {
-      color: ${(props: StyledProps) => props.theme.color};
-    }
-
-    .burger {
-      background-color: ${(props: StyledProps) => props.theme.color};
-    }
-
-    .switch {
-      background-color: ${(props: StyledProps) => props.theme.color};
-    }
-    .handle {
-      background-color: ${(props: StyledProps) => props.theme.color};
-    }
+    background-color: ${(props: StyledProps) =>
+      props.theme.background} !important;
+  }
+  nav li a {
+    color: ${(props: StyledProps) => props.theme.color};
+    transition: color 0.3 ease-in-out;
   }
 `;
 
@@ -40,6 +37,7 @@ export const Layout = () => {
   const [isOn, setIsOn] = useState(false);
 
   const { x, y } = useMousePosition();
+  const { scrollX, scrollY } = useScrollPosition();
 
   const toggleTheme = () => {
     setIsOn(!isOn);
@@ -52,10 +50,8 @@ export const Layout = () => {
 
   return (
     <ThemeContext.Provider value={theme}>
-      <StyledLayout>
+      <StyledLayout y={y + scrollY} x={x + scrollX}>
         <Header setTheme={toggleTheme} themeIsOn={isOn} />
-
-        <StyledCursor top={`${y}px`} left={`${x}px`} />
         <main>
           <Outlet />
         </main>
