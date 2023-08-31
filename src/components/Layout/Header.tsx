@@ -6,16 +6,16 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import styled from "styled-components";
 import { HashLink } from "react-router-hash-link";
-import { Burger, burgerProps } from "./Burger";
+import { Burger, BurgerProps } from "./Burger";
 import { primaryDarkColor } from "../../context/ThemeContext";
-import logo from "../../assets/Logo_.svg";
+import logo from "../../assets/Logo.svg";
 
 type ThemeProps = {
   themeIsOn: boolean;
   setTheme: () => void;
 };
 
-const StyledNav = styled.nav<burgerProps>`
+const StyledNav = styled.nav<BurgerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,7 +34,7 @@ const StyledNav = styled.nav<burgerProps>`
     background-color: ${primaryDarkColor};
     transform: ${({ open }) => (!open ? "translateX(100%)" : "translateX(0)")};
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     transition: transform 0.3s ease-in;
 
@@ -66,10 +66,15 @@ export const Header = ({ setTheme, themeIsOn }: ThemeProps) => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  isOpen
+    ? (document.body.style.overflowY = "hidden")
+    : (document.body.style.overflowY = "auto");
+
   return (
     <header id="top">
       <HashLink smooth to={"/"} className="logo-mobile">
-        <img src={logo} width={90} height={90} alt="logga" />
+        <img src={logo} width={70} height={70} alt="logga" />
       </HashLink>
       <Burger open={isOpen} click={handleClick}></Burger>
       <StyledNav open={isOpen}>

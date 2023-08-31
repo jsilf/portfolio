@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
 import { ThemeType as Theme, themes } from "../../context/ThemeContext";
@@ -18,7 +18,7 @@ const StyledLayout = styled.div<StyledProps>`
   background: radial-gradient(
     400px at ${(props: StyledProps) => props.x}px
       ${(props: StyledProps) => props.y}px,
-    rgb(232, 74, 95) -40%,
+    rgb(232, 74, 95) -70%,
     ${(props: StyledProps) => props.theme.background} 80%
   );
 
@@ -28,22 +28,34 @@ const StyledLayout = styled.div<StyledProps>`
   }
   nav li a {
     color: ${(props: StyledProps) => props.theme.color};
-    transition: color 0.3 ease-in-out;
   }
 `;
 
 export const Layout = () => {
   const [theme, setTheme] = useState<Theme>(themes.dark);
   const [isOn, setIsOn] = useState(false);
+  const [storageTheme, setStorageTheme] = useState<string>("");
 
   const { x, y } = useMousePosition();
   const { scrollX, scrollY } = useScrollPosition();
+
+  useEffect(() => {
+    return getThemesFromLS();
+  }, [storageTheme]);
+
+  const getThemesFromLS = () => {
+    const getTheme = localStorage.getItem("theme") || "";
+    if (getTheme) setStorageTheme(getTheme);
+    storageTheme === "light" ? setTheme(themes.light) : setTheme(themes.dark);
+  };
 
   const toggleTheme = () => {
     setIsOn(!isOn);
     if (theme === themes.light) {
       setTheme(themes.dark);
+      localStorage.setItem("theme", "dark");
     } else {
+      localStorage.setItem("theme", "light");
       setTheme(themes.light);
     }
   };

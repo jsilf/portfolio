@@ -1,5 +1,5 @@
 import { Variants, motion } from "framer-motion";
-import bgImage from "../../assets/peter-olexa-RYtiT3b7XW4-unsplash.jpg";
+import bgImage from "../../assets/unsplash.webp";
 
 export const About = () => {
   const cardVariants: Variants = {

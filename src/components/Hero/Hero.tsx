@@ -1,4 +1,4 @@
-import profilePic from "../../assets/JS.png";
+import profilePic from "../../assets/profile.webp";
 import { motion } from "framer-motion";
 import { Arrow } from "../Parts/Arrow";
 

@@ -1,6 +1,10 @@
 footer {
   padding: 60px 0;
 
+  @include phone {
+    position: relative;
+  }
+
   .content {
     width: 100%;
     max-width: 1440px;

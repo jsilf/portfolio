@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import { ThemeType, primaryDarkColor } from "../../context/ThemeContext";
+import { ThemeType } from "../../context/ThemeContext";
 
-export type burgerProps = {
+export type BurgerProps = {
   open: boolean;
   click?: () => void;
   theme?: ThemeType;
 };
 
-const StyledBurger = styled.div<burgerProps>`
+const StyledBurger = styled.div<BurgerProps>`
   display: none;
 
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    position: absolute;
+    position: ${({ open }) => (!open ? "absolute" : "fixed")};
     top: 30px;
     right: 30px;
     z-index: 200;
@@ -28,7 +28,7 @@ const StyledBurger = styled.div<burgerProps>`
     transform-origin: 2px;
     transition: all 0.3s linear;
     background: ${({ open }) =>
-      open ? "#fff" : (props: burgerProps) => props.theme?.primaryColor};
+      open ? "#fff" : (props: BurgerProps) => props.theme?.primaryColor};
 
     &:nth-child(1) {
       width: ${({ open }) => (open ? "45px" : "46px")};
@@ -49,7 +49,7 @@ const StyledBurger = styled.div<burgerProps>`
   }
 `;
 
-export const Burger = ({ open, click }: burgerProps) => {
+export const Burger = ({ open, click }: BurgerProps) => {
   return (
     <StyledBurger open={open} onClick={click}>
       <span className="burger"></span>
