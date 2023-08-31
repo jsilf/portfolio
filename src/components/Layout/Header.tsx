@@ -20,10 +20,6 @@ const StyledNav = styled.nav<BurgerProps>`
   align-items: center;
   justify-content: space-between;
 
-  .logo-mobile {
-    display: none;
-  }
-
   @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
@@ -66,10 +62,16 @@ export const Header = ({ setTheme, themeIsOn }: ThemeProps) => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+  const mediaQ = window.matchMedia("(max-width: 768px)");
 
-  isOpen
-    ? (document.body.style.overflowY = "hidden")
-    : (document.body.style.overflowY = "auto");
+  const handleOverflow = (mediaQ: MediaQueryList) => {
+    if (mediaQ.matches && isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  };
+  handleOverflow(mediaQ);
 
   return (
     <header id="top">

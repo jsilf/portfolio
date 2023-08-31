@@ -9,10 +9,12 @@ header {
     padding: 1.4rem;
   }
 
-  .logo-mobile img {
+  .logo-mobile {
     display: none;
     @include phone {
       display: block;
+    }
+    img {
       width: 70px;
       height: 70px;
     }
