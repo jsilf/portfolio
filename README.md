@@ -1,15 +1,17 @@
 # Personal portfolio
 
-This is my personal portfolio using Githubs api for my portfolio projects.  
-Design made in Figma.  
+This is my personal portfolio using Githubs api and external links for projects i'm working on and finished ones.  
+Design made in february 2023 and then remade in august 2023 in Figma.  
+Trying out Framer Motion and using localstorage to store theme context.  
 Deployed on Vercel, check it out here: https://jessicasilfver.com  
 
 ## Logo
 
-![Logo](https://user-images.githubusercontent.com/92667872/224483169-b32a5d31-856e-42b3-a531-4302820a912a.svg)
+![Logo](https://github.com/jsilf/portfolio/assets/92667872/6aae5ca8-c8a2-414e-ba8e-6c2b69b992da)  
 
 
-## Tech Stack  
+## Tech Stack 
+
 
 ### Frontend
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -25,6 +27,7 @@ axios
 framer-motion  
 sass  
 styled components  
+uuid  
 
 
 ## License  
