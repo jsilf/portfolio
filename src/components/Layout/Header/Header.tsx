@@ -1,14 +1,14 @@
-import { ThemedButton } from "../Parts/ThemedButton";
-import { Icon } from "../Parts/Icon";
+import { ThemedButton } from "./ThemedButton";
+import { Icon } from "../../Parts/Icon";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons/faGithubSquare";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { HashLink } from "react-router-hash-link";
 import { Burger, BurgerProps } from "./Burger";
-import { primaryDarkColor } from "../../context/ThemeContext";
-import logo from "../../assets/Logo.svg";
+import { primaryDarkColor } from "../../../context/ThemeContext";
+import logo from "../../../assets/Logo.svg";
 
 type ThemeProps = {
   themeIsOn: boolean;
@@ -62,6 +62,8 @@ export const Header = ({ setTheme, themeIsOn }: ThemeProps) => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  //no scroll when menu in phone is open
   const mediaQ = window.matchMedia("(max-width: 768px)");
 
   const handleOverflow = (mediaQ: MediaQueryList) => {

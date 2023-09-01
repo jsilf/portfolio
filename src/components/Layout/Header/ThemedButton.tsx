@@ -2,8 +2,9 @@ import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
 import { faLightbulb as regLightBulb } from "@fortawesome/free-regular-svg-icons/faLightbulb";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import { primaryDarkColor } from "../../context/ThemeContext";
-import { StyledTheme } from "../Layout/Layout";
+import { primaryDarkColor } from "../../../context/ThemeContext";
+import { StyledTheme } from "../Layout";
+import { useEffect } from "react";
 
 type ThemedButtonProps = {
   onClick?: () => void;

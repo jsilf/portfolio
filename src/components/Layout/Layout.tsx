@@ -4,8 +4,9 @@ import styled, { ThemeContext } from "styled-components";
 import { ThemeType as Theme, themes } from "../../context/ThemeContext";
 import { Footer } from "./Footer";
 import { useMousePosition } from "../../hooks/useMousePosition";
-import { Header } from "./Header";
+
 import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { Header } from "./Header/Header";
 
 export type StyledTheme = {
   theme: Theme;
@@ -33,12 +34,14 @@ const StyledLayout = styled.div<StyledProps>`
 
 export const Layout = () => {
   const [theme, setTheme] = useState<Theme>(themes.dark);
-  const [isOn, setIsOn] = useState(false);
+  const [isOn, setIsOn] = useState<boolean>(false);
   const [storageTheme, setStorageTheme] = useState<string>("");
 
+  //mouse position hook for styled cursor
   const { x, y } = useMousePosition();
   const { scrollX, scrollY } = useScrollPosition();
 
+  //save theme in localstorage
   useEffect(() => {
     return getThemesFromLS();
   }, [storageTheme]);
@@ -46,7 +49,13 @@ export const Layout = () => {
   const getThemesFromLS = () => {
     const getTheme = localStorage.getItem("theme") || "";
     if (getTheme) setStorageTheme(getTheme);
-    storageTheme === "light" ? setTheme(themes.light) : setTheme(themes.dark);
+    if (storageTheme === "light") {
+      setTheme(themes.light);
+      setIsOn(true);
+    } else {
+      setTheme(themes.dark);
+      setIsOn(false);
+    }
   };
 
   const toggleTheme = () => {

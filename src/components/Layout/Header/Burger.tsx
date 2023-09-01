@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ThemeType } from "../../context/ThemeContext";
+import { ThemeType } from "../../../context/ThemeContext";
 
 export type BurgerProps = {
   open: boolean;
