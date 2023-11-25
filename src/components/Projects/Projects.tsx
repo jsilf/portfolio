@@ -2,7 +2,7 @@ import axios from "axios";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "../Parts/Button";
-import { externalProjects, projectList } from "./ProjectList";
+import { projectList } from "./ProjectList";
 
 export type ProjectType = {
   id: string;
@@ -26,7 +26,7 @@ export const Projects = () => {
   const [project, setProject] = useState<Project[]>([]);
   const projectPerRow = 4;
   const [nextRow, setNextRow] = useState(projectPerRow);
-  const filterFromApi = ["jsilf", "simple-diary"];
+  const filterFromApi = ["jsilf"];
 
   useEffect(() => {
     axios
@@ -45,7 +45,7 @@ export const Projects = () => {
         const filtered = projectsFromApi.filter(
           (proj) => !filterFromApi.includes(proj.name)
         );
-        return setProject([...externalProjects, ...filtered]);
+        return setProject([...filtered]);
       });
     // .catch(function (error) {
     //   if (error.response) {

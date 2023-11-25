@@ -41,11 +41,9 @@ export const About = () => {
           <motion.div variants={cardVariants} className="text-block">
             <h2 className="about-title">about me</h2>
             <p>
-              I am a frontend developer based in Stockholm, Sweden. Constantly
-              learning new things and growing in my role, and always excited to
-              take on new challenges. The tech I currently work with is HTML5,
-              CSS3/SCSS, JavaScript, TypeScript, React.js, Next.js, Node.js,
-              Express.js, MongoDB. Figma for design.
+              I am a Frontend developer based in Sweden. Constantly learning new
+              things and growing in my role. I'm always excited to take on new
+              challenges.
             </p>
           </motion.div>
         </motion.div>
